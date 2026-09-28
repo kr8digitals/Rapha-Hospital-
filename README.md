@@ -1,13 +1,15 @@
-# Chi-Tom Rapha Hospital & Maternity — Website (dynamic web app)
+# Chi-Tom Rapha Hospital & Maternity — Website (Node.js web app)
 
 **We Care, God Heals.**
 
-A modern, dynamic website for Chi-Tom Rapha Hospital & Maternity, Abakaliki, Ebonyi State, Nigeria. The public pages are fully self-contained HTML (all styles, scripts and images inlined), and a small built-in **PHP content API** makes the site dynamic: blog, announcements, testimonials and site settings are stored on the server and shared by every visitor.
+A modern, dynamic website for Chi-Tom Rapha Hospital & Maternity, Abakaliki, Ebonyi State, Nigeria. The public pages are fully self-contained HTML (all styles, scripts and images inlined), and a **zero-dependency Node.js server** (`server.js`) serves the site and runs the content API: blog, announcements, testimonials and site settings are stored on the server and shared by every visitor.
 
 ## Structure
 
 | Path | Purpose |
 |---|---|
+| `server.js` | The Node.js web app — static file serving + content API (zero npm dependencies) |
+| `package.json` | Project manifest — start command `npm start` |
 | `index.html` | Home — hero, quick actions, announcements, services, why-choose-us, maternity, health insights, **Community Voices (testimonials)**, FAQ |
 | `about.html` | About — mission, vision, core values, approach, founder profile |
 | `services.html` | Services — all service areas plus maternity |
@@ -15,20 +17,27 @@ A modern, dynamic website for Chi-Tom Rapha Hospital & Maternity, Abakaliki, Ebo
 | `contact.html` | Contact — validated booking form, phones, email, map |
 | `admin.html` | Admin dashboard (server-verified login) — manage posts, announcements, testimonials (pin / publish / unpublish / archive / edit / delete), settings, backup & restore |
 | `404.html` | Friendly not-found page |
-| `api/index.php` | The content API (PHP 7.4+, no dependencies) |
 | `data/seed.json` | Pristine copy of the original content (used by *Reset*) |
 | `data/content.json` | Live content store — created automatically on first API call (never committed) |
 
-## The content API
+## The content API (run inside `server.js`)
 
-`api/index.php?action=…` (JSON):
+`/api/index.php?action=…` (JSON — the front-end already calls these URLs):
 
 - `public` — published posts, announcements, published testimonials, settings
 - `testimonial` — visitor submits a story (screened automatically: criticism and 1–2★ ratings are hidden until the admin reviews them)
 - `login` — `{password}` → bearer token (verified on the server; the password is **not** in any page's JavaScript)
 - `admin_content`, `save`, `backup`, `import`, `reset` — authenticated (bearer token)
 
-**Configuration:** open `api/index.php` and edit the two constants at the top — `ADMIN_PASS` (dashboard password) and `API_TOKEN`. The `data/` folder is blocked from direct web access by `data/.htaccess`; the live file `data/content.json` must be writable by PHP (true by default on cPanel/Hostinger).
+**Configuration:** defaults work out of the box. Optionally set environment variables (e.g. in hPanel → your app → Environment variables):
+
+| Variable | Default | Meaning |
+|---|---|---|
+| `PORT` | `3000` | Port the app listens on (match the port Hostinger expects) |
+| `ADMIN_PASS` | the hospital's dashboard password | Change it here (or in `server.js`) |
+| `API_TOKEN` | a fixed long string | Internal admin token |
+
+The `data/` folder is never served as a file — it is only reachable through the API.
 
 ## Features
 
@@ -37,24 +46,23 @@ A modern, dynamic website for Chi-Tom Rapha Hospital & Maternity, Abakaliki, Ebo
 - **CMS dashboard** connected to the server — changes apply to every visitor immediately; JSON backup/restore
 - **Progressive enhancement** — the full site renders even if JavaScript is blocked
 - Accessible: semantic landmarks, ARIA labels, keyboard focus states, AA-friendly contrast
-- Fast: zero JavaScript libraries, lazy-loaded images, one request per page
+- Fast: zero JavaScript libraries on the front-end, zero npm dependencies on the server, lazy-loaded images
 
-## Deployment (Hostinger)
+## Deployment (Hostinger — "Web Apps" / Node.js from GitHub)
 
-Any Hostinger plan with PHP works (no Node.js needed):
-
-1. **hPanel → Files → Git** (or upload these files to `public_html/` via File Manager)
-2. Connect this repository, branch `main`, deploy to `public_html` (the domain root) — or to the subdomain's folder if using a subdomain
-3. Check **hPanel → Files → PHP** is 8.x (anything 7.4+ works)
-4. Done — the site is live; the API works out of the box (`data/content.json` is created on first use)
+1. hPanel → **Websites → Deploy from GitHub** (the Node.js web-app flow — this is the one that asked for `package.json`; it's now present)
+2. Select this repository (`Rapha-Hospital-`), branch `main`
+3. **Start command:** `npm start`
+4. **Port:** `3000` (or set `PORT` as an environment variable and match it)
+5. Deploy — `npm install` is a no-op (no dependencies), and the app is live
 
 Notes:
-- If a previous static-only version exists on the host, the deploy overwrites it cleanly.
-- The site also works fully offline (embedded seed content) if the API is ever unreachable.
-- `.cpanel.yml` remains in the repo for Truehost's git deploy; it is inert on Hostinger and can be deleted if you're fully moving off Truehost.
+- If a redeploy ever wipes `data/content.json`, the server re-creates it from `data/seed.json` on first use — but your changes since the seed would be lost, so keep using **Backup & Restore** in the admin for regular JSON backups.
+- `.cpanel.yml` (leftover from a Truehost setup) is inert here and can be deleted.
+- The site also renders fully (embedded seed content) if the API is ever unreachable.
 
 ## Security
 
-- Dashboard login is verified server-side; the password lives only in `api/index.php`.
+- Dashboard login is verified server-side; the password is only in `server.js` / the `ADMIN_PASS` environment variable — never in client JavaScript.
 - `data/` cannot be browsed or fetched directly.
-- Keep the repository **private** — the API configuration lives in the source.
+- Keep the repository **private** — the app configuration lives in the source.

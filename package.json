@@ -1,0 +1,13 @@
+{
+  "name": "rapha-hospital",
+  "version": "3.0.0",
+  "private": true,
+  "description": "Chi-Tom Rapha Hospital & Maternity — dynamic website (Node.js web app, zero dependencies)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}
