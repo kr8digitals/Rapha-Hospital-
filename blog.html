@@ -60,6 +60,8 @@ section{padding:56px 0}
 .topbar a:hover{color:var(--gold)}
 .topbar svg{width:14px;height:14px;opacity:.9}
 .tb-right{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+/* contact strip is removed on small screens — phone stays one tap away via the floating button */
+@media(max-width:700px){.topbar{display:none}}
 
 /* header */
 .site-head{position:sticky;top:0;z-index:100;background:var(--white);transition:box-shadow .25s}
@@ -393,9 +395,9 @@ footer{background:var(--ink);color:#c9ccce;padding:56px 0 0;font-size:14.5px}
 @media(max-width:600px){.fab{width:48px;height:48px}.fab svg{width:21px;height:21px}}
 
 /* reveal animations */
-.rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
-.rv.in{opacity:1;transform:none}
-.rv-l{transform:translateX(-30px)}.rv-r{transform:translateX(30px)}
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
+.js .rv.in{opacity:1;transform:none}
+.js .rv-l{transform:translateX(-30px)}.js .rv-r{transform:translateX(30px)}
 .rv-l.in,.rv-r.in{transform:none}
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
@@ -793,16 +795,21 @@ window.CTRH_SEED = {"settings": {"siteName": "Chi-Tom Rapha Hospital & Maternity
 (function(){
   var K='ctrh_site_v1';
   var DEFAULTS={"siteName": "Chi-Tom Rapha Hospital & Maternity", "tagline": "We Care, God Heals.", "heroTitle": "We Care, God Heals", "heroLead": "At Chi-Tom Rapha Hospital & Maternity, we provide accessible and affordable healthcare with a humane approach—serving individuals, mothers, children and families with professional medical care, compassion and dignity.", "phone": "+234 706 958 8315", "phoneTel": "+2347069588315", "phone2": "+234 812 559 0397", "phone2Tel": "+2348125590397", "email": "contact@chitomraphahospital.com", "address": "1 ChiTom Rapha Hospital Avenue, Okpoduma Nwofe Izzi LGA, 480102 Abakaliki, Nigeria.", "addressShort": "1 Chitom Rapha Hospital Avenue, Okpoduma Agbaja", "hours": "24/7 Medical Services", "wa": "2347069588315"};
+  var REMOTE=null, REMOTE_OK=false, curSettings=null;
+
   function clone(o){return JSON.parse(JSON.stringify(o));}
   function fresh(){return clone(window.CTRH_SEED);}
-  function load(){
+  function loadLocal(){
     try{var s=JSON.parse(localStorage.getItem(K));
       if(s&&s.settings&&Array.isArray(s.posts)&&Array.isArray(s.announcements)){
         if(!Array.isArray(s.testimonials))s.testimonials=[];
         return s;}}catch(e){}
     return fresh();
   }
-  function save(s){try{localStorage.setItem(K,JSON.stringify(s));return true;}catch(e){return false;}}
+  function saveLocal(s){try{localStorage.setItem(K,JSON.stringify(s));return true;}catch(e){return false;}}
+  /* active content: server first, then this browser, then the shipped seed */
+  function store(){return (REMOTE_OK&&REMOTE)?REMOTE:loadLocal();}
+
   function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
   function inline(s){return esc(s).replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');}
   function mdLite(src){
@@ -838,16 +845,12 @@ window.CTRH_SEED = {"settings": {"siteName": "Chi-Tom Rapha Hospital & Maternity
   function iconSvg(n){
     return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(ICONS[n]||ICONS.heart)+'</svg>';
   }
-  window.CTRH={KEY:K,load:load,save:save,md:mdLite,esc:esc,fresh:fresh,icon:iconSvg};
-
   function fmtDate(d){
     if(!d)return'';var m=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
     if(/^\d{4}-\d{2}-\d{2}$/.test(d)){var p=d.split('-');return parseInt(p[2],10)+' '+m[parseInt(p[1],10)-1]+' '+p[0];}
     return d;
   }
-  window.CTRH.fmtDate=fmtDate;
   function readMin(body){var w=(String(body).match(/\S+/g)||[]).length;return Math.max(2,Math.round(w/200));}
-  window.CTRH.readMin=readMin;
 
   function coverIcon(p,cls){
     return '<div class="b-cover cov '+(cls||'')+'"><span class="cov-ic">'+iconSvg(p.icon||'heart')+'</span><span class="cov-cat">'+esc(p.category||'Health')+'</span></div>';
@@ -859,76 +862,13 @@ window.CTRH_SEED = {"settings": {"siteName": "Chi-Tom Rapha Hospital & Maternity
       +'<h3>'+esc(p.title)+'</h3><p>'+esc(p.excerpt)+'</p>'
       +'<small>'+fmtDate(p.date)+' · '+readMin(p.body)+' min read</small></div></a>';
   }
-  window.CTRH.blogCard=blogCard;
-  window.CTRH.coverIcon=coverIcon;
 
-  /* settings propagation across the whole document (runs before other scripts attach listeners) */
-  (function(){
-    var st=load().settings,pairs=[];
-    for(var k in DEFAULTS){
-      if(k==='wa'){
-        if(st.whatsapp&&st.whatsapp!==DEFAULTS.wa)pairs.push(['https://wa.me/'+DEFAULTS.wa,'https://wa.me/'+st.whatsapp]);
-        continue;
-      }
-      var v=st[k];if(v&&v!==DEFAULTS[k])pairs.push([DEFAULTS[k],v]);
-    }
-    if(!pairs.length)return;
-    var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null),ns=[],n;
-    while(w.nextNode())ns.push(w.currentNode);
-    ns.forEach(function(node){
-      var s=node.nodeValue;if(!s)return;
-      for(var i=0;i<pairs.length;i++){if(s.indexOf(pairs[i][0])>-1)s=s.split(pairs[i][0]).join(pairs[i][1]);}
-      if(s!==node.nodeValue)node.nodeValue=s;
-    });
-    document.querySelectorAll('a[href],iframe[src]').forEach(function(a){
-      ['href','src'].forEach(function(attr){
-        var h=a.getAttribute(attr);if(!h)return;var nh=h;
-        for(var i=0;i<pairs.length;i++){if(nh.indexOf(pairs[i][0])>-1)nh=nh.split(pairs[i][0]).join(pairs[i][1]);}
-        if(nh!==h)a.setAttribute(attr,nh);
-      });
-    });
-  })();
-
-  /* announcements */
-  (function(){
-    var host=document.querySelector('[data-render-ann]');if(!host)return;
-    var list=load().announcements.slice().sort(function(a,b){
-      return (b.pinned?1:0)-(a.pinned?1:0)||String(b.date||'').localeCompare(String(a.date||''));});
-    if(!list.length){var sec=host.closest('section');if(sec)sec.style.display='none';return;}
-    host.innerHTML=list.map(function(a){
-      return '<article class="an-card rv in'+(a.pinned?' pinned':'')+'">'
-        +'<div class="an-top"><span class="an-tag">'+esc(a.tag||'Update')+'</span>'+(a.pinned?'<span class="an-pin">★ Pinned</span>':'')+'</div>'
-        +'<h3>'+esc(a.title)+'</h3><p>'+esc(a.body)+'</p><small>'+esc(a.date||'')+'</small></article>';
-    }).join('');
-  })();
-
-  /* blog preview */
-  (function(){
-    var host=document.querySelector('[data-render-blog]');if(!host)return;
-    var posts=load().posts.filter(function(p){return p.status!=='draft';})
-      .sort(function(a,b){return String(b.date||'').localeCompare(String(a.date||''));});
-    if(!posts.length){var sec=host.closest('section');if(sec)sec.style.display='none';return;}
-    host.innerHTML=posts.slice(0,3).map(blogCard).join('');
-  })();
-
-  /* latest announcement mini strip (blog page) */
-  (function(){
-    var host=document.querySelector('[data-render-ann-mini]');if(!host)return;
-    var list=load().announcements.slice().sort(function(a,b){return (b.pinned?1:0)-(a.pinned?1:0);});
-    if(!list.length)return;
-    var a=list[0];
-    host.innerHTML='<div class="ann-mini"><span class="ic">'+iconSvg('mail')+'</span><div><b>Latest: '+esc(a.title)+'</b><p>'+esc(a.body)+'</p></div></div>';
-  })();
-
-  /* ============ community voices (testimonials) ============ */
-  /* criticism screen: keyword signals + low ratings. Flagged stories are hidden
-     from the public by default; the admin can still review and override. */
+  /* ---- criticism screen (mirrors the API) ---- */
   var NEG=/angry|anger|bad(ly)?|awful|horrible|terrible|atrocious|worst|disappoint|unhappy|unsatisfied|unprofessional|rud(e|ely|eness)|negligen|neglect|ignor(e|ed|ance)|abandon|dismiss|refus|waste of (time|money|resources)|scam|fraud|rip ?off|overcharg|filth|unhygienic|complain|abuse|poor (service|care|treatment|attitude)|never (again|come back|return)|avoid (this|them|it)|regret|useless|incompet|kept (me |us )?wait|waited (forever|hours|a long time|too long)|no (one|anyone|proper) (help|care|attention|respect)|indifferent|delay(ed)? (my |our )?(treatment|diagnosis|response)|missed (diagnosis|appointment)|died|killed|sue(d)?|court|legal action|threat|swindl|cheat(ed|ing)?|stole|robbed|dirty/i;
   function moderate(msg,rating){
     return NEG.test(String(msg||''))||(!!rating&&rating<=2);
   }
-  /* impact score: recency first, but quality can lift a story above newer,
-     weaker ones. Pinned stories always lead (admin override). */
+  /* impact score: recency first, quality lifts strong stories, pinned leads */
   function tstScore(t){
     var s=0;
     if(t.pinned)s+=1000;
@@ -957,9 +897,29 @@ window.CTRH_SEED = {"settings": {"siteName": "Chi-Tom Rapha Hospital & Maternity
       +'<div class="tst-who"><b>'+who+'</b><small>'+(esc(t.relation||'')+(t.relation?' · ':'')+chip+' · '+esc(fmtDate(t.date)))+'</small></div>'
       +'</article>';
   }
+
+  /* ---- renderers (all read the active store) ---- */
+  function renderAnn(){
+    var host=document.querySelector('[data-render-ann]');if(!host)return;
+    var list=(store().announcements||[]).slice().sort(function(a,b){
+      return (b.pinned?1:0)-(a.pinned?1:0)||String(b.date||'').localeCompare(String(a.date||''));});
+    if(!list.length){var sec=host.closest('section');if(sec)sec.style.display='none';return;}
+    host.innerHTML=list.map(function(a){
+      return '<article class="an-card rv in'+(a.pinned?' pinned':'')+'">'
+        +'<div class="an-top"><span class="an-tag">'+esc(a.tag||'Update')+'</span>'+(a.pinned?'<span class="an-pin">★ Pinned</span>':'')+'</div>'
+        +'<h3>'+esc(a.title)+'</h3><p>'+esc(a.body)+'</p><small>'+esc(a.date||'')+'</small></article>';
+    }).join('');
+  }
+  function renderBlogPrev(){
+    var host=document.querySelector('[data-render-blog]');if(!host)return;
+    var posts=(store().posts||[]).filter(function(p){return p.status!=='draft';})
+      .sort(function(a,b){return String(b.date||'').localeCompare(String(a.date||''));});
+    if(!posts.length){var sec=host.closest('section');if(sec)sec.style.display='none';return;}
+    host.innerHTML=posts.slice(0,3).map(blogCard).join('');
+  }
   function renderTst(){
     var host=document.querySelector('[data-render-tst]');if(!host)return;
-    var all=load().testimonials.filter(function(t){return t.status==='publish';});
+    var all=(store().testimonials||[]).filter(function(t){return t.status==='publish';});
     var countEl=document.querySelector('[data-tst-count]');
     if(countEl)countEl.textContent=all.length+(all.length===1?' story':' stories')+' shared';
     if(!all.length){
@@ -972,13 +932,100 @@ window.CTRH_SEED = {"settings": {"siteName": "Chi-Tom Rapha Hospital & Maternity
     if(all.length>7)html+='<div class="tst-more rv in">+ '+(all.length-7)+' more stories shared privately</div>';
     host.innerHTML=html;
   }
-  renderTst();
-  window.CTRH.moderate=moderate;
-  window.CTRH.tstScore=tstScore;
+  function renderAnnMini(){
+    var host=document.querySelector('[data-render-ann-mini]');if(!host)return;
+    var list=(store().announcements||[]).slice().sort(function(a,b){return (b.pinned?1:0)-(a.pinned?1:0);});
+    if(!list.length)return;
+    var a=list[0];
+    host.innerHTML='<div class="ann-mini"><span class="ic">'+iconSvg('mail')+'</span><div><b>Latest: '+esc(a.title)+'</b><p>'+esc(a.body)+'</p></div></div>';
+  }
+  function renderSite(){
+    renderAnn();renderBlogPrev();renderTst();renderAnnMini();
+    try{document.dispatchEvent(new CustomEvent('ctrh-content'));}catch(e){}
+  }
 
-  /* experience popup — dynamic & intentional:
-     waits for real engagement (scroll/click), fires once per visit,
-     respects a cooldown between visits, can be switched off in the admin. */
+  /* ---- settings propagation: replace prev values with next values everywhere ---- */
+  function propagateSettings(prev,next){
+    var pairs=[];
+    for(var k in DEFAULTS){
+      if(k==='wa'){
+        if(next.whatsapp&&prev.whatsapp&&next.whatsapp!==prev.whatsapp)
+          pairs.push(['https://wa.me/'+prev.whatsapp,'https://wa.me/'+next.whatsapp]);
+        continue;
+      }
+      var v=next[k];
+      if(v&&prev[k]&&v!==prev[k])pairs.push([prev[k],v]);
+    }
+    if(!pairs.length)return;
+    var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,null),ns=[],n;
+    while(w.nextNode())ns.push(w.currentNode);
+    ns.forEach(function(node){
+      var s=node.nodeValue;if(!s)return;
+      for(var i=0;i<pairs.length;i++){if(s.indexOf(pairs[i][0])>-1)s=s.split(pairs[i][0]).join(pairs[i][1]);}
+      if(s!==node.nodeValue)node.nodeValue=s;
+    });
+    var links=document.querySelectorAll('a[href],iframe[src]');
+    for(var j=0;j<links.length;j++){(function(a){
+      ['href','src'].forEach(function(attr){
+        var h=a.getAttribute(attr);if(!h)return;var nh=h;
+        for(var i=0;i<pairs.length;i++){if(nh.indexOf(pairs[i][0])>-1)nh=nh.split(pairs[i][0]).join(pairs[i][1]);}
+        if(nh!==h)a.setAttribute(attr,nh);
+      });
+    })(links[j]);}
+  }
+  function applySettings(next){
+    var prev=curSettings||DEFAULTS;
+    curSettings=next;
+    propagateSettings(prev,next);
+  }
+
+  /* ---- boot: local/seed first (instant paint), server content right after ---- */
+  applySettings(store().settings);
+  renderSite();
+
+  window.CTRH={
+    KEY:K,load:store,save:saveLocal,fresh:fresh,esc:esc,md:mdLite,icon:iconSvg,
+    fmtDate:fmtDate,readMin:readMin,blogCard:blogCard,coverIcon:coverIcon,
+    moderate:moderate,tstScore:tstScore,renderTst:renderTst,
+    remoteOk:function(){return REMOTE_OK;},
+    refresh:function(){
+      return fetch('api/index.php?action=public',{cache:'no-store'})
+        .then(function(r){return r.ok?r.json():null;})
+        .then(function(d){
+          if(d&&d.ok&&d.content&&d.content.settings&&Array.isArray(d.content.posts)&&Array.isArray(d.content.testimonials)){
+            REMOTE=d.content;REMOTE_OK=true;
+            applySettings(REMOTE.settings);
+            renderSite();
+            return true;
+          }
+          return false;
+        })
+        .catch(function(){return false;});
+    }
+  };
+  window.CTRH.refresh();
+
+  /* ---- testimonial submission: server first, browser fallback ---- */
+  function localPush(x){
+    try{var s=loadLocal();s.testimonials=s.testimonials||[];s.testimonials.push(x);saveLocal(s);}catch(e){}
+    renderTst();
+  }
+  window.CTRH.submitTestimonial=function(t,cb){
+    var payload={name:t.name||'',relation:t.relation||'Community member',kind:t.kind,rating:t.rating||null,message:t.message};
+    fetch('api/index.php?action=testimonial',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+      .then(function(r){return r.json();})
+      .then(function(d){
+        if(d&&d.ok){
+          t.status=d.status;t.flagged=(d.status==='hidden');
+          localPush(t);
+          window.CTRH.refresh();
+          cb(true);
+        }else{localPush(t);cb(false);}
+      })
+      .catch(function(){localPush(t);cb(false);});
+  };
+
+  /* ---- experience popup: dynamic & intentional ---- */
   var popEl=null,popOpen=false,lastFocus=null,popRating=0;
   function popHtml(){
     return '<div class="tst-pop-overlay" id="tstPopOverlay">'
@@ -1006,18 +1053,21 @@ window.CTRH_SEED = {"settings": {"siteName": "Chi-Tom Rapha Hospital & Maternity
   }
   function paintStars(){
     var r=document.getElementById('tstRate');if(!r)return;
-    r.querySelectorAll('.tst-starbtn').forEach(function(b,idx){b.classList.toggle('on',idx<popRating);});
+    var btns=r.querySelectorAll('.tst-starbtn');
+    for(var i=0;i<btns.length;i++)btns[i].classList.toggle('on',i<popRating);
     var e=document.getElementById('tstRateErr');if(e)e.hidden=popRating>0;
   }
   function buildRate(){
     var r=document.getElementById('tstRate');if(!r)return;
     r.innerHTML='';
     for(var i=1;i<=5;i++){
-      var b=document.createElement('button');
-      b.type='button';b.className='tst-starbtn';b.textContent='★';
-      b.setAttribute('aria-label',i+' star'+(i>1?'s':''));
-      (function(v){b.addEventListener('click',function(){popRating=v;paintStars();});})(i);
-      r.appendChild(b);
+      (function(v){
+        var b=document.createElement('button');
+        b.type='button';b.className='tst-starbtn';b.textContent='★';
+        b.setAttribute('aria-label',v+' star'+(v>1?'s':''));
+        b.addEventListener('click',function(){popRating=v;paintStars();});
+        r.appendChild(b);
+      })(i);
     }
   }
   function openTstPopup(){
@@ -1054,21 +1104,21 @@ window.CTRH_SEED = {"settings": {"siteName": "Chi-Tom Rapha Hospital & Maternity
       if(ev.key==='Escape')closeTstPopup(7*86400000);
       if(ev.key==='Tab'){
         var list=[];
-        popEl.querySelectorAll('button, input, select, textarea').forEach(function(el){
-          if(el.offsetParent!==null)list.push(el);
-        });
+        var cands=popEl.querySelectorAll('button, input, select, textarea');
+        for(var i=0;i<cands.length;i++){if(cands[i].offsetParent!==null)list.push(cands[i]);}
         if(!list.length)return;
         var first=list[0],last=list[list.length-1];
         if(ev.shiftKey&&document.activeElement===first){ev.preventDefault();last.focus();}
         else if(!ev.shiftKey&&document.activeElement===last){ev.preventDefault();first.focus();}
       }
     });
-    popEl.querySelectorAll('input[name=tkind]').forEach(function(rd){
+    var radios=popEl.querySelectorAll('input[name=tkind]');
+    for(var i=0;i<radios.length;i++)(function(rd){
       rd.addEventListener('change',function(){
         var w=document.getElementById('tstRateWrap');
         if(w)w.style.display=(rd.value==='experience'&&rd.checked)?'':'none';
       });
-    });
+    })(radios[i]);
     buildRate();
     document.getElementById('tstPopForm').addEventListener('submit',function(ev){
       ev.preventDefault();
@@ -1080,29 +1130,27 @@ window.CTRH_SEED = {"settings": {"siteName": "Chi-Tom Rapha Hospital & Maternity
       if(msg.length<12)ok=false;
       if(kind==='experience'&&!popRating){document.getElementById('tstRateErr').hidden=false;ok=false;}
       if(!ok)return;
-      var name=document.getElementById('tstName').value.trim(),
-          rel=document.getElementById('tstRel').value,
-          rating=kind==='experience'?popRating:null;
-      var flagged=moderate(msg,rating);
       var t={id:'t'+Date.now().toString(36)+Math.random().toString(36).slice(2,5),
-        name:name,relation:rel,kind:kind,rating:rating,message:msg,
-        date:new Date().toISOString().slice(0,10),pinned:false,
-        status:flagged?'hidden':'publish',flagged:flagged};
-      var s=load();
-      s.testimonials=s.testimonials||[];
-      s.testimonials.push(t);
-      if(C.save(s)){renderTst();}
-      document.getElementById('tstPopBody').innerHTML=
-        '<div class="tst-success"><span class="tst-success-ic">✓</span>'
-        +'<h3>Thank you — your story has been received</h3>'
-        +'<p>Our team reads every story carefully. You may see it in our <b>Community Voices</b> section very soon.</p>'
-        +'<button class="btn btn-teal" type="button" id="tstDone">Done</button></div>';
-      document.getElementById('tstDone').addEventListener('click',function(){closeTstPopup(30*86400000);});
+        name:document.getElementById('tstName').value.trim(),
+        relation:document.getElementById('tstRel').value,
+        kind:kind,
+        rating:kind==='experience'?popRating:null,
+        message:msg,
+        date:new Date().toISOString().slice(0,10),
+        pinned:false,status:'publish',flagged:false};
+      window.CTRH.submitTestimonial(t,function(){
+        document.getElementById('tstPopBody').innerHTML=
+          '<div class="tst-success"><span class="tst-success-ic">✓</span>'
+          +'<h3>Thank you — your story has been received</h3>'
+          +'<p>Our team reads every story carefully. You may see it in our <b>Community Voices</b> section very soon.</p>'
+          +'<button class="btn btn-teal" type="button" id="tstDone">Done</button></div>';
+        document.getElementById('tstDone').addEventListener('click',function(){closeTstPopup(30*86400000);});
+      });
     });
   }
   window.CTRH.openTstPopup=openTstPopup;
 
-  /* explicit entry points (footer link, empty-state button, etc.) */
+  /* explicit entry points (footer link, empty-state button) */
   document.addEventListener('click',function(e){
     var t=e.target.closest?e.target.closest('[data-open-tst]'):null;
     if(t){e.preventDefault();openTstPopup();}
@@ -1111,7 +1159,7 @@ window.CTRH_SEED = {"settings": {"siteName": "Chi-Tom Rapha Hospital & Maternity
   /* the intentional timer: no popup unless the visitor genuinely engages */
   (function(){
     if(/admin\.html/.test(location.pathname))return;
-    if(load().settings.popup===false)return;
+    if(store().settings.popup===false)return;
     try{
       var d=JSON.parse(localStorage.getItem('ctrh_tst_popup')||'{}');
       if(d.suppressedUntil&&Date.now()<d.suppressedUntil)return;
@@ -1129,8 +1177,7 @@ window.CTRH_SEED = {"settings": {"siteName": "Chi-Tom Rapha Hospital & Maternity
       tick();
     },15000);
   })();
-})();
-</script>
+})();</script>
 <script>
 (function(){
   var C=window.CTRH, grid=document.getElementById('blogGrid'),
@@ -1209,9 +1256,12 @@ window.CTRH_SEED = {"settings": {"siteName": "Chi-Tom Rapha Hospital & Maternity
     var ic=b.getAttribute('data-icon');
     b.insertAdjacentHTML('afterbegin',C.icon(ic));
   });
+  /* re-render when server content arrives */
+  document.addEventListener('ctrh-content',function(){buildChips();render();});
 })();
 </script>
 <script>
+document.documentElement.classList.add('js');
 (function(){
   var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   /* header scroll state */
