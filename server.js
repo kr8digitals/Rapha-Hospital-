@@ -24,6 +24,7 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const zlib = require('zlib');
 
 const ROOT = __dirname;
 const DATA_DIR = path.join(ROOT, 'data');
@@ -183,13 +184,28 @@ function serveStatic(req, res, p) {
   const file = path.normalize(path.join(ROOT, p));
   if (!file.startsWith(ROOT + path.sep) && file !== ROOT) { res.writeHead(403); return res.end(); }
   if (fs.existsSync(file) && fs.statSync(file).isFile()) {
-    res.writeHead(200, {
-      'Content-Type': TYPES[path.extname(file).toLowerCase()] || 'application/octet-stream',
-      'Cache-Control': 'no-cache',
+    const ext = path.extname(file).toLowerCase();
+    const type = TYPES[ext] || 'application/octet-stream';
+    const data = fs.readFileSync(file);
+    const isAsset = p.startsWith('/assets/');
+    const headers = {
+      'Content-Type': type,
+      // Images/logos are immutable in practice -> cache a week; HTML always revalidated
+      'Cache-Control': isAsset ? 'public, max-age=604800' : (ext === '.html' ? 'no-cache' : 'public, max-age=3600'),
       'X-Content-Type-Options': 'nosniff',
       'Referrer-Policy': 'strict-origin-when-cross-origin'
-    });
-    return res.end(fs.readFileSync(file));
+    };
+    // gzip text responses — this is what makes mobile 3G/4G loads feel instant
+    const enc = (req.headers['accept-encoding'] || '');
+    if (enc.indexOf('gzip') !== -1 && (type.indexOf('text/') === 0 || type.indexOf('json') !== -1 || type.indexOf('svg') !== -1) && data.length > 1024) {
+      headers['Content-Encoding'] = 'gzip';
+      headers['Vary'] = 'Accept-Encoding';
+      res.writeHead(200, headers);
+      return res.end(zlib.gzipSync(data, { level: 6 }));
+    }
+    headers['Content-Length'] = data.length;
+    res.writeHead(200, headers);
+    return res.end(data);
   }
   const nf = path.join(ROOT, '404.html');
   res.writeHead(404, { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-cache' });
