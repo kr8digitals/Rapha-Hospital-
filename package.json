@@ -2,12 +2,15 @@
   "name": "rapha-hospital",
   "version": "3.0.0",
   "private": true,
-  "description": "Chi-Tom Rapha Hospital & Maternity — dynamic website (Node.js web app, zero dependencies)",
+  "description": "Chi-Tom Rapha Hospital & Maternity — dynamic website (Node.js web app)",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.95.0"
+  },
   "engines": {
-    "node": ">=16"
+    "node": "24.x"
   }
 }
