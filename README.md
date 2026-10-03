@@ -8,61 +8,25 @@ A modern, dynamic website for Chi-Tom Rapha Hospital & Maternity, Abakaliki, Ebo
 
 | Path | Purpose |
 |---|---|
-| `server.js` | The Node.js web app — static file serving + content API (zero npm dependencies) |
-| `package.json` | Project manifest — start command `npm start` |
-| `index.html` | Home — hero, quick actions, announcements, services, why-choose-us, maternity, health insights, **Community Voices (testimonials)**, FAQ |
-| `about.html` | About — mission, vision, core values, approach, founder profile |
-| `services.html` | Services — all service areas plus maternity |
-| `blog.html` | Health Insights — searchable, filterable articles with full article views |
-| `contact.html` | Contact — validated booking form, phones, email, map |
-| `admin.html` | Admin dashboard (server-verified login) — manage posts, announcements, testimonials (pin / publish / unpublish / archive / edit / delete), settings, backup & restore |
-| `404.html` | Friendly not-found page |
-| `data/seed.json` | Pristine copy of the original content (used by *Reset*) |
-| `data/content.json` | Live content store — created automatically on first API call (never committed) |
+| `public/` | The website: `index`, `about`, `services`, `blog`, `contact`, `admin`, `404` (.html) and `assets/` |
+| `api/index.js` | Vercel serverless content API (`/api/index.php?action=...` is rewritten here) |
+| `api/_seed.json` | Pristine original content (used by *Reset* in the admin) |
+| `vercel.json` | Rewrite for the API URL + security/cache headers |
 
-## The content API (run inside `server.js`)
+## Backend
 
-`/api/index.php?action=…` (JSON — the front-end already calls these URLs):
+Content (settings, posts, announcements, testimonials) is stored in **Supabase Postgres** (`public.site_content`, one row). The table is locked by Row Level Security; the API reaches it only through `SECURITY DEFINER` functions (`rapha_*`) that require a server-side secret.
 
-- `public` — published posts, announcements, published testimonials, settings
-- `testimonial` — visitor submits a story (screened automatically: criticism and 1–2★ ratings are hidden until the admin reviews them)
-- `login` — `{password}` → bearer token (verified on the server; the password is **not** in any page's JavaScript)
-- `admin_content`, `save`, `backup`, `import`, `reset` — authenticated (bearer token)
+### Environment variables (Vercel → Settings → Environment Variables)
 
-**Configuration:** defaults work out of the box. Optionally set environment variables (e.g. in hPanel → your app → Environment variables):
+| Variable | Meaning |
+|---|---|
+| `SUPABASE_URL` | Supabase project URL |
+| `SUPABASE_ANON_KEY` | Supabase anon (publishable) key |
+| `DB_SECRET` | Server-only secret the database functions check |
+| `ADMIN_PASS` | Admin dashboard password |
+| `TOKEN_SECRET` | Signs admin session tokens (12-hour expiry) |
 
-| Variable | Default | Meaning |
-|---|---|---|
-| `PORT` | `3000` | Port the app listens on (match the port Hostinger expects) |
-| `ADMIN_PASS` | the hospital's dashboard password | Change it here (or in `server.js`) |
-| `API_TOKEN` | a fixed long string | Internal admin token |
+## Deployment
 
-The `data/` folder is never served as a file — it is only reachable through the API.
-
-## Features
-
-- **Mobile-first responsive**, tested from 360px up to widescreen; contact strip removed on mobile (phone stays one tap away via the floating button)
-- **Community Voices** — engagement-triggered experience popup (frequency-capped, reduced-motion aware), automatic criticism screening, quality-weighted curation (recency + rating + substance; pinned stories featured)
-- **CMS dashboard** connected to the server — changes apply to every visitor immediately; JSON backup/restore
-- **Progressive enhancement** — the full site renders even if JavaScript is blocked
-- Accessible: semantic landmarks, ARIA labels, keyboard focus states, AA-friendly contrast
-- Fast: zero JavaScript libraries on the front-end, zero npm dependencies on the server, lazy-loaded images
-
-## Deployment (Hostinger — "Web Apps" / Node.js from GitHub)
-
-1. hPanel → **Websites → Deploy from GitHub** (the Node.js web-app flow — this is the one that asked for `package.json`; it's now present)
-2. Select this repository (`Rapha-Hospital-`), branch `main`
-3. **Start command:** `npm start`
-4. **Port:** `3000` (or set `PORT` as an environment variable and match it)
-5. Deploy — `npm install` is a no-op (no dependencies), and the app is live
-
-Notes:
-- If a redeploy ever wipes `data/content.json`, the server re-creates it from `data/seed.json` on first use — but your changes since the seed would be lost, so keep using **Backup & Restore** in the admin for regular JSON backups.
-- `.cpanel.yml` (leftover from a Truehost setup) is inert here and can be deleted.
-- The site also renders fully (embedded seed content) if the API is ever unreachable.
-
-## Security
-
-- Dashboard login is verified server-side; the password is only in `server.js` / the `ADMIN_PASS` environment variable — never in client JavaScript.
-- `data/` cannot be browsed or fetched directly.
-- Keep the repository **private** — the app configuration lives in the source.
+Import the repo in Vercel (Framework: **Other**, no build command, output directory `public`), set the variables above, deploy, then add the domain.

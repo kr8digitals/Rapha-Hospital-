@@ -1,1 +1,3 @@
-data/content.json
+node_modules
+.vercel
+.env*
