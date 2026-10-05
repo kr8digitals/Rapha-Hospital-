@@ -1031,7 +1031,7 @@ window.CTRH_SEED = {"settings": {"siteName": "Chi-Tom Rapha Hospital & Maternity
     moderate:moderate,tstScore:tstScore,renderTst:renderTst,
     remoteOk:function(){return REMOTE_OK;},
     refresh:function(){
-      return fetch('api/index.php?action=public',{cache:'no-store'})
+      return fetch('/api/index.php?action=public',{cache:'no-store'})
         .then(function(r){return r.ok?r.json():null;})
         .then(function(d){
           if(d&&d.ok&&d.content&&d.content.settings&&Array.isArray(d.content.posts)&&Array.isArray(d.content.testimonials)){
@@ -1054,7 +1054,7 @@ window.CTRH_SEED = {"settings": {"siteName": "Chi-Tom Rapha Hospital & Maternity
   }
   window.CTRH.submitTestimonial=function(t,cb){
     var payload={name:t.name||'',relation:t.relation||'Community member',kind:t.kind,rating:t.rating||null,message:t.message};
-    fetch('api/index.php?action=testimonial',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    fetch('/api/index.php?action=testimonial',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
       .then(function(r){return r.json();})
       .then(function(d){
         if(d&&d.ok){
