@@ -60,6 +60,44 @@ directly; the only path in is the `rapha_*` functions, which require the `DB_SEC
 If you ever rotate the secret, update both `supabase/_rapha_secrets` (SQL: `update public._rapha_secrets
 set v = '<new>' where k='db_secret';`) and the Vercel `DB_SECRET` variable.
 
+## Google Reviews sync (Community Voices)
+
+The homepage "Community Voices" section can show the hospital's real Google Business Profile reviews.
+`api/reviews.js` (Vercel serverless) fetches them from Google, caches the result in Supabase
+(`public.google_reviews_cache`), and serves `GET /api/reviews`. The page only shows the reviews block
+when the API returns a non-empty list, so it is invisible until the credentials below are set.
+
+**To enable (all in Vercel → Project → Settings → Environment Variables):**
+
+| Variable | Required | Purpose |
+|---|---|---|
+| `GBP_API_KEY` | yes | Google Cloud API key with the **Business Profile (My Business) API** enabled for the project. |
+| `GBP_LOCATION_NAME` | yes | The location resource name, e.g. `accounts/{account}/locations/{location}`. |
+| `PLACES_API_KEY` | no | Fallback only — Places API key (limited review window). |
+| `GBP_PLACE_ID` | no | Fallback only — the place id of the same Business Profile. |
+
+Notes:
+- Re-running `supabase/schema.sql` is safe — the reviews-cache section (v2) uses
+  `IF NOT EXISTS` / `CREATE OR REPLACE`, so existing content is untouched.
+- Freshness: reviews are re-fetched from Google at most every 6 hours (server-side cache).
+  In the admin dashboard (Testimonials tab → "Google Reviews Sync") you can see the last sync and
+  force an immediate re-sync.
+- Per Google's review-snippet policy the site renders individual reviews verbatim (name, stars,
+  date, text) with a link back to the profile. It does **not** emit an aggregate "X stars" rating
+  in structured data.
+
+## SEO
+
+- Every page has a unique `<title>`, meta description, canonical URL and Open Graph tags, plus
+  JSON-LD structured data (Hospital, WebSite, Person, Service, BreadcrumbList; Article is injected
+  per post by the blog page).
+- Blog posts are crawlable at their own URLs: `https://chitomraphahospital.com/blog/<slug>`.
+- `robots.txt` and `sitemap.xml` are generated at the site root; `og.jpg` (1200×630) is the
+  social-share image.
+- Two placeholders to fill once you have the accounts: `GA4_ID` and `GSC_VERIFICATION` at the top
+  of the build's `seo.py` (Google Analytics 4 measurement id and Google Search Console verification
+  value). Until then the GA4 snippet is a no-op and the GSC tag is omitted.
+
 ## Other branches
 
 `hostinger-node` — the previous zero-dependency Node.js version (for Hostinger "Web Apps" hosting),

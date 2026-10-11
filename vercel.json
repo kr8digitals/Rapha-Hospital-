@@ -38,6 +38,10 @@
       "destination": "/api/index"
     },
     {
+      "source": "/blog/:slug",
+      "destination": "/blog.html"
+    },
+    {
       "source": "/about",
       "destination": "/about.html"
     },
