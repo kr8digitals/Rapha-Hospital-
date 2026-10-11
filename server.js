@@ -222,6 +222,15 @@ const server = http.createServer((req, res) => {
     return handleApi(req, res, u.searchParams.get('action') || '');
   }
   if (p.startsWith('/api/')) { res.writeHead(404, { 'Content-Type': 'application/json' }); return res.end('{"ok":false,"error":"Unknown action"}'); }
+
+  // Clean, app-like URLs — the .html forms just canonicalise onto them
+  const legacy = p.match(/^\/(index|about|services|blog|contact|admin)\.html$/);
+  if (legacy) { res.writeHead(301, { Location: legacy[1] === 'index' ? '/' : '/' + legacy[1] }); return res.end(); }
+  if (p.length > 1 && p.slice(-1) === '/') { res.writeHead(301, { Location: p.replace(/\/+$/, '') || '/' }); return res.end(); }
+  if (p !== '/' && !path.extname(p)) {
+    const cand = path.join(ROOT, p + '.html');
+    if (fs.existsSync(cand) && fs.statSync(cand).isFile()) p = p + '.html';   // internal rewrite, no redirect
+  }
   return serveStatic(req, res, p);
 });
 

@@ -616,7 +616,7 @@ footer{background:var(--ink);color:#c9ccce;padding:56px 0 0;font-size:14.5px}
 @media(min-width:1020px){.tst-wrap{grid-template-columns:repeat(3,1fr)}.tst-featured{grid-column:span 2}}
 
 /* experience popup */
-.tst-pop-overlay{position:fixed;inset:0;background:rgba(4,55,59,.6);backdrop-filter:blur(3px);z-index:400;
+.tst-pop-overlay{position:fixed;inset:0;background:rgba(4,55,59,.72);z-index:400;
   display:none;align-items:center;justify-content:center;padding:18px;opacity:0;transition:opacity .25s}
 .tst-pop-overlay.show{opacity:1}
 .tst-pop{background:var(--white);border-radius:20px;max-width:520px;width:100%;max-height:92vh;overflow:auto;
@@ -686,7 +686,7 @@ footer{background:var(--ink);color:#c9ccce;padding:56px 0 0;font-size:14.5px}
 
 <div class="adm-app" id="admApp" hidden>
   <aside class="adm-side">
-    <a class="brand" href="index.html">
+    <a class="brand" href="/"">
       <img src="assets/logo.png" alt="logo">
       <span><span class="brand-t">Chi-Tom Rapha</span><br><span class="brand-s">Site Admin</span></span>
     </a>
@@ -697,7 +697,7 @@ footer{background:var(--ink);color:#c9ccce;padding:56px 0 0;font-size:14.5px}
     <button class="adm-navbtn" data-sec="settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1 1.55V21a2 2 0 1 1-4 0v-.09a1.7 1.7 0 0 0-1-1.55 1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.7 1.7 0 0 0 .34-1.87 1.7 1.7 0 0 0-1.55-1H3a2 2 0 1 1 0-4h.09a1.7 1.7 0 0 0 1.55-1 1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.7 1.7 0 0 0 1.87.34h.09a1.7 1.7 0 0 0 1-1.55V3a2 2 0 1 1 4 0v.09a1.7 1.7 0 0 0 1 1.55 1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.7 1.7 0 0 0-.34 1.87v.09a1.7 1.7 0 0 0 1.55 1H21a2 2 0 1 1 0 4h-.09a1.7 1.7 0 0 0-1.55 1z"/></svg><span class="lbltxt">Site Settings</span></button>
     <button class="adm-navbtn" data-sec="backup"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg><span class="lbltxt">Backup &amp; Restore</span></button>
     <span class="spacer"></span>
-    <a class="adm-navbtn" href="index.html" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg><span class="lbltxt">View Site</span></a>
+    <a class="adm-navbtn" href="/"" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg><span class="lbltxt">View Site</span></a>
     <button class="adm-navbtn" id="admLogout"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5M21 12H9"/></svg><span class="lbltxt">Log Out</span></button>
   </aside>
   <div class="adm-main">
@@ -717,7 +717,7 @@ footer{background:var(--ink);color:#c9ccce;padding:56px 0 0;font-size:14.5px}
         <h3>How This Dashboard Works</h3>
         <p class="desc">Everything you save here updates the live site <b>immediately and for every visitor</b> — posts, announcements, testimonials, phone numbers, addresses, even the hero message. Content is stored on the website’s server through the built-in content API, so what you see here is exactly what the public sees. Use <b>Backup &amp; Restore</b> to export a JSON file of your content: keep it safe, or import it to restore the entire site anytime.</p>
         <div class="row-flex">
-          <a class="btn btn-teal btn-sm" href="index.html" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg>&nbsp; Open the Live Site</a>
+          <a class="btn btn-teal btn-sm" href="/"" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg>&nbsp; Open the Live Site</a>
           <button class="btn btn-outline btn-sm" data-goto="backup">Manage Backup</button>
         </div>
       </div>
@@ -957,7 +957,7 @@ window.CTRH_SEED = {"settings": {"siteName": "Chi-Tom Rapha Hospital & Maternity
   }
   function blogCard(p){
     var cov=p.image?'<div class="b-cover"><img src="'+esc(p.image)+'" alt="" loading="lazy"></div>':coverIcon(p);
-    return '<a class="b-card rv in" href="blog.html#'+esc(p.slug)+'">'+cov
+    return '<a class="b-card rv in" href="blog"#'+esc(p.slug)+'">'+cov
       +'<div class="b-body"><span class="an-tag">'+esc(p.category||'Health')+'</span>'
       +'<h3>'+esc(p.title)+'</h3><p>'+esc(p.excerpt)+'</p>'
       +'<small>'+fmtDate(p.date)+' · '+readMin(p.body)+' min read</small></div></a>';
@@ -1017,9 +1017,26 @@ window.CTRH_SEED = {"settings": {"siteName": "Chi-Tom Rapha Hospital & Maternity
     if(!posts.length){var sec=host.closest('section');if(sec)sec.style.display='none';return;}
     host.innerHTML=posts.slice(0,3).map(blogCard).join('');
   }
+  /* published stories: server list + this browser's freshly shared ones (so a
+     story appears here the moment it is submitted, even before a round-trip) */
+  function publishedTst(){
+    var s=store();
+    var all=(s.testimonials||[]).filter(function(t){return t.status==='publish';});
+    if(REMOTE_OK){
+      try{
+        var loc=JSON.parse(localStorage.getItem(K))||{};
+        (loc.testimonials||[]).forEach(function(t){
+          if(t.status!=='publish')return;
+          var seen=(s.testimonials||[]).some(function(r){return r.id===t.id;});
+          if(!seen)all.push(t);
+        });
+      }catch(e){}
+    }
+    return all;
+  }
   function renderTst(){
     var host=document.querySelector('[data-render-tst]');if(!host)return;
-    var all=(store().testimonials||[]).filter(function(t){return t.status==='publish';});
+    var all=publishedTst();
     var countEl=document.querySelector('[data-tst-count]');
     if(countEl)countEl.textContent=all.length+(all.length===1?' story':' stories')+' shared';
     if(!all.length){
@@ -1029,7 +1046,7 @@ window.CTRH_SEED = {"settings": {"siteName": "Chi-Tom Rapha Hospital & Maternity
     all.sort(function(a,b){return tstScore(b)-tstScore(a);});
     var html=tstCard(all[0],true);
     for(var i=1;i<all.length&&i<6;i++)html+=tstCard(all[i],false);
-    if(all.length>7)html+='<div class="tst-more rv in">+ '+(all.length-7)+' more stories shared privately</div>';
+    if(all.length>7)html+='<div class="tst-more rv in">+ '+(all.length-7)+' more stories from our community</div>';
     host.innerHTML=html;
   }
   function renderAnnMini(){
@@ -1134,7 +1151,7 @@ window.CTRH_SEED = {"settings": {"siteName": "Chi-Tom Rapha Hospital & Maternity
       +'<div class="tst-pop-body" id="tstPopBody">'
       +'<span class="eyebrow">Community Voices</span>'
       +'<h3 id="tstPopTitle">Your story could help the next person</h3>'
-      +'<p class="tst-pop-sub">Behind every visit is a family making a decision. Tell us about your experience at Chi-Tom Rapha Hospital — or what you have heard from someone who has been — and your story may appear in our Community Voices section.</p>'
+      +'<p class="tst-pop-sub">Behind every visit is a family making a decision. Tell us about your experience at Chi-Tom Rapha Hospital — or what you have heard from someone who has been — and your story will appear in our Community Voices section.</p>'
       +'<form id="tstPopForm">'
       +'<div class="tst-radios">'
       +'<label class="tst-radio"><input type="radio" name="tkind" value="experience" checked><span>I want to share my own experience</span></label>'
@@ -1144,7 +1161,7 @@ window.CTRH_SEED = {"settings": {"siteName": "Chi-Tom Rapha Hospital & Maternity
       +'<div class="e-field"><label>You are a…</label><select id="tstRel"><option>Patient</option><option>Family member</option><option>New mother</option><option>Referred by a friend</option><option>Community member</option><option>Other</option></select></div>'
       +'<div class="e-field" id="tstRateWrap"><label>Your rating</label><div class="tst-rate" id="tstRate" role="radiogroup" aria-label="Rating"></div><p class="tst-rate-err" id="tstRateErr" hidden>Please tap a star to rate your experience.</p></div>'
       +'<div class="e-field"><label>Your story *</label><textarea id="tstMsg" rows="4" placeholder="What happened? How was the care? Who helped? What stood out to you?"></textarea><p class="tst-rate-err" id="tstMsgErr" hidden>Please write a little more — at least a couple of sentences.</p></div>'
-      +'<p class="tst-pop-note">Every story is read by our team before it is published.</p>'
+      +'<p class="tst-pop-note">Your story will appear in our Community Voices section on this page.</p>'
       +'<div class="tst-pop-actions"><button class="btn btn-teal" type="submit">Share my story</button><button class="btn btn-ghost" type="button" id="tstLater">Maybe later</button></div>'
       +'<button class="tst-pop-no" type="button" id="tstNo">No thanks</button>'
       +'</form>'
@@ -1179,29 +1196,32 @@ window.CTRH_SEED = {"settings": {"siteName": "Chi-Tom Rapha Hospital & Maternity
       wirePop();
     }
     popOpen=true;lastFocus=document.activeElement;
-    popEl.style.display='flex';
-    requestAnimationFrame(function(){popEl.classList.add('show');});
+    var ov=popEl.querySelector('.tst-pop-overlay');
+    ov.style.display='flex';
+    requestAnimationFrame(function(){requestAnimationFrame(function(){ov.classList.add('show');});});
     document.body.style.overflow='hidden';
-    var f=popEl.querySelector('input[type=radio]');if(f)f.focus();
+    var f=ov.querySelector('input[type=radio]');if(f)f.focus();
   }
   function closeTstPopup(suppressMs){
     if(!popOpen)return;
-    popOpen=false;popEl.classList.remove('show');
+    popOpen=false;
+    var ov2=popEl.querySelector('.tst-pop-overlay');
+    ov2.classList.remove('show');
     document.body.style.overflow='';
     if(suppressMs){
       try{localStorage.setItem('ctrh_tst_popup',JSON.stringify({suppressedUntil:Date.now()+suppressMs}));}catch(e){}
     }
-    setTimeout(function(){if(popEl&&!popOpen)popEl.style.display='none';},260);
+    setTimeout(function(){if(popEl&&!popOpen)ov2.style.display='none';},260);
     if(lastFocus&&lastFocus.focus)lastFocus.focus();
   }
   function wirePop(){
-    document.getElementById('tstPopX').addEventListener('click',function(){closeTstPopup(7*86400000);});
-    document.getElementById('tstLater').addEventListener('click',function(){closeTstPopup(7*86400000);});
-    document.getElementById('tstNo').addEventListener('click',function(){closeTstPopup(60*86400000);});
-    document.getElementById('tstPopOverlay').addEventListener('click',function(e){if(e.target===this)closeTstPopup(7*86400000);});
+    document.getElementById('tstPopX').addEventListener('click',function(){closeTstPopup(72*3600000);});
+    document.getElementById('tstLater').addEventListener('click',function(){closeTstPopup(72*3600000);});
+    document.getElementById('tstNo').addEventListener('click',function(){closeTstPopup(30*86400000);});
+    document.getElementById('tstPopOverlay').addEventListener('click',function(e){if(e.target===this)closeTstPopup(72*3600000);});
     document.addEventListener('keydown',function(ev){
       if(!popOpen)return;
-      if(ev.key==='Escape')closeTstPopup(7*86400000);
+      if(ev.key==='Escape')closeTstPopup(72*3600000);
       if(ev.key==='Tab'){
         var list=[];
         var cands=popEl.querySelectorAll('button, input, select, textarea');
@@ -1242,7 +1262,7 @@ window.CTRH_SEED = {"settings": {"siteName": "Chi-Tom Rapha Hospital & Maternity
         document.getElementById('tstPopBody').innerHTML=
           '<div class="tst-success"><span class="tst-success-ic">✓</span>'
           +'<h3>Thank you — your story has been received</h3>'
-          +'<p>Our team reads every story carefully. You may see it in our <b>Community Voices</b> section very soon.</p>'
+          +'<p>Thank you for helping the next family walk in with confidence. Your story is now part of our <b>Community Voices</b>.</p>'
           +'<button class="btn btn-teal" type="button" id="tstDone">Done</button></div>';
         document.getElementById('tstDone').addEventListener('click',function(){closeTstPopup(30*86400000);});
       });
@@ -1270,12 +1290,12 @@ window.CTRH_SEED = {"settings": {"siteName": "Chi-Tom Rapha Hospital & Maternity
     setTimeout(function(){
       function tick(){
         if(opened)return;
-        if(engaged){opened=true;setTimeout(openTstPopup,1200);return;}
+        if(engaged||Date.now()-t0>45000){opened=true;setTimeout(openTstPopup,1200);return;}
         if(Date.now()-t0>75000)return;
-        setTimeout(tick,4000);
+        setTimeout(tick,3000);
       }
       tick();
-    },15000);
+    },12000);
   })();
 })();</script>
 <script>
