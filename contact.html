@@ -3,8 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex">
-<title>Admin - Chi-Tom Rapha Hospital</title>
+<title>Contact - Chi-Tom Rapha Hospital</title>
+<meta name="description" content="Contact Chi-Tom Rapha Hospital & Maternity — book a consultation, call +234 706 958 8315, email contact@chitomraphahospital.com, or find us in Abakaliki, Ebonyi State, Nigeria.">
+<meta property="og:title" content="Contact - Chi-Tom Rapha Hospital">
+<meta property="og:description" content="Contact Chi-Tom Rapha Hospital & Maternity — book a consultation, call +234 706 958 8315, email contact@chitomraphahospital.com, or find us in Abakaliki, Ebonyi State, Nigeria.">
+<meta property="og:type" content="website">
 <link rel="icon" href="assets/favicon.ico">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -616,7 +619,7 @@ footer{background:var(--ink);color:#c9ccce;padding:56px 0 0;font-size:14.5px}
 @media(min-width:1020px){.tst-wrap{grid-template-columns:repeat(3,1fr)}.tst-featured{grid-column:span 2}}
 
 /* experience popup */
-.tst-pop-overlay{position:fixed;inset:0;background:rgba(4,55,59,.6);backdrop-filter:blur(3px);z-index:400;
+.tst-pop-overlay{position:fixed;inset:0;background:rgba(4,55,59,.72);z-index:400;
   display:none;align-items:center;justify-content:center;padding:18px;opacity:0;transition:opacity .25s}
 .tst-pop-overlay.show{opacity:1}
 .tst-pop{background:var(--white);border-radius:20px;max-width:520px;width:100%;max-height:92vh;overflow:auto;
@@ -668,228 +671,197 @@ footer{background:var(--ink);color:#c9ccce;padding:56px 0 0;font-size:14.5px}
 .tst-row-msg{color:var(--gray);font-size:13px;max-width:520px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block}
 </style>
 </head>
-<body class="adm">
+<body>
 
-<div class="adm-login" id="admLogin">
-  <div class="adm-login-card">
-    <img src="assets/logo.png" alt="Chi-Tom Rapha Hospital logo">
-    <h1>Site Admin</h1>
-    <p>Enter your passcode to manage posts, announcements and site details.</p>
-    <div class="adm-err" id="admErr">Incorrect passcode — please try again.</div>
-    <form id="admLoginForm">
-      <input type="password" id="admPass" placeholder="Admin password" autocomplete="current-password" required>
-      <button class="btn btn-teal" type="submit" style="width:100%">Unlock Dashboard</button>
-    </form>
-    <p class="adm-hint">Restricted area. This dashboard is accessible only to authorized administrators — login is verified by the site’s server.</p>
+<a class="skip" href="#main">Skip to content</a>
+<div class="topbar">
+  <div class="container">
+    <span style="display:inline-flex;gap:7px;align-items:center"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> 1 Chitom Rapha Hospital Avenue, Okpoduma Agbaja</span>
+    <span class="tb-right">
+      <a href="mailto:contact@chitomraphahospital.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2.5"/><path d="m22 7-10 6.5L2 7"/></svg> contact@chitomraphahospital.com</a>
+      <a href="tel:+2347069588315"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg> +234 706 958 8315</a>
+      <span style="display:inline-flex;gap:7px;align-items:center"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 3.2"/></svg> Open 24/7</span>
+    </span>
   </div>
 </div>
-
-<div class="adm-app" id="admApp" hidden>
-  <aside class="adm-side">
-    <a class="brand" href="index.html">
-      <img src="assets/logo.png" alt="logo">
-      <span><span class="brand-t">Chi-Tom Rapha</span><br><span class="brand-s">Site Admin</span></span>
+<header class="site-head">
+  <div class="container nav-wrap">
+    <a class="brand" href="/" aria-label="Chi-Tom Rapha Hospital home">
+      <img src="assets/logo.png" alt="Chi-Tom Rapha Hospital &amp; Maternity logo" width="64" height="64" fetchpriority="high">
+      <span><span class="brand-t">Chi-Tom Rapha</span><br><span class="brand-s">Hospital &amp; Maternity</span></span>
     </a>
-    <button class="adm-navbtn on" data-sec="overview"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="3" width="7.5" height="7.5" rx="1.5"/><rect x="3" y="13.5" width="7.5" height="7.5" rx="1.5"/><rect x="13.5" y="13.5" width="7.5" height="7.5" rx="1.5"/></svg><span class="lbltxt">Overview</span></button>
-    <button class="adm-navbtn" data-sec="posts"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg><span class="lbltxt">Health Insights</span></button>
-    <button class="adm-navbtn" data-sec="ann"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v3l9 4V7z"/><path d="M12 7l8-4v18l-8-4"/><path d="M7.5 14.5V18a1.5 1.5 0 0 0 3 0v-2.6"/></svg><span class="lbltxt">Announcements</span></button>
-    <button class="adm-navbtn" data-sec="tst"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 11H6a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v6c0 2-1 3.5-3 4.5"/><path d="M20 11h-4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v6c0 2-1 3.5-3 4.5"/></svg><span class="lbltxt">Testimonials</span><span class="adm-count" id="navTstCount">0</span></button>
-    <button class="adm-navbtn" data-sec="settings"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1 1.55V21a2 2 0 1 1-4 0v-.09a1.7 1.7 0 0 0-1-1.55 1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.7 1.7 0 0 0 .34-1.87 1.7 1.7 0 0 0-1.55-1H3a2 2 0 1 1 0-4h.09a1.7 1.7 0 0 0 1.55-1 1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.7 1.7 0 0 0 1.87.34h.09a1.7 1.7 0 0 0 1-1.55V3a2 2 0 1 1 4 0v.09a1.7 1.7 0 0 0 1 1.55 1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.7 1.7 0 0 0-.34 1.87v.09a1.7 1.7 0 0 0 1.55 1H21a2 2 0 1 1 0 4h-.09a1.7 1.7 0 0 0-1.55 1z"/></svg><span class="lbltxt">Site Settings</span></button>
-    <button class="adm-navbtn" data-sec="backup"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.66 3.58 3 8 3s8-1.34 8-3V5"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg><span class="lbltxt">Backup &amp; Restore</span></button>
-    <span class="spacer"></span>
-    <a class="adm-navbtn" href="index.html" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg><span class="lbltxt">View Site</span></a>
-    <button class="adm-navbtn" id="admLogout"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5M21 12H9"/></svg><span class="lbltxt">Log Out</span></button>
-  </aside>
-  <div class="adm-main">
-    <header class="adm-top">
-      <div><h2 id="admTitle">Overview</h2><div class="sub" id="admSub">Everything about your site content, in one place.</div></div>
-      <button class="btn btn-teal btn-sm" id="admNewTop">+ New Post</button>
-    </header>
-
-    <section id="sec-overview">
-      <div class="stat-row">
-        <div class="stat-card"><div class="num" id="stPub">0</div><div class="lbl">Published Articles</div></div>
-        <div class="stat-card"><div class="num" id="stDraft">0</div><div class="lbl">Drafts</div></div>
-        <div class="stat-card"><div class="num" id="stAnn">0</div><div class="lbl">Announcements</div></div>
-        <div class="stat-card"><div class="num" id="stKb">—</div><div class="lbl">Storage</div></div>
-      </div>
-      <div class="panel">
-        <h3>How This Dashboard Works</h3>
-        <p class="desc">Everything you save here updates the live site <b>immediately and for every visitor</b> — posts, announcements, testimonials, phone numbers, addresses, even the hero message. Content is stored on the website’s server through the built-in content API, so what you see here is exactly what the public sees. Use <b>Backup &amp; Restore</b> to export a JSON file of your content: keep it safe, or import it to restore the entire site anytime.</p>
-        <div class="row-flex">
-          <a class="btn btn-teal btn-sm" href="index.html" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg>&nbsp; Open the Live Site</a>
-          <button class="btn btn-outline btn-sm" data-goto="backup">Manage Backup</button>
-        </div>
-      </div>
-      <div class="panel">
-        <h3>Quick Start</h3>
-        <p class="desc">1. Write a new article under <b>Health Insights</b> (plain text with simple markdown: <code>## heading</code>, <code>- list</code>, <code>&gt; callout</code>, <code>**bold**</code>).<br>2. Post an <b>Announcement</b> for anything visitors should see on the homepage.<br>3. If your phone or address changes, update it once in <b>Site Settings</b> — it updates everywhere on the site.<br>4. Hit <b>Export</b> in Backup &amp; Restore to keep a copy.</p>
-      </div>
-    </section>
-
-    <section id="sec-posts" hidden>
-      <div class="panel" id="postEditor" hidden>
-        <h3 id="postEditorTitle">New Article</h3>
-        <div class="e-grid">
-          <div class="e-field e-wide"><label>Article Title *</label><input id="pe_title" type="text" placeholder="e.g. How to Prepare Your Child for a School Health Check"></div>
-          <div class="e-field"><label>Category</label><select id="pe_cat">
-            <option>Maternity</option><option>Emergency Care</option><option>Prevention</option>
-            <option>Diagnostics</option><option>Surgery</option><option>General Health</option>
-          </select></div>
-          <div class="e-field"><label>Date</label><input id="pe_date" type="date"></div>
-          <div class="e-field"><label>Slug (URL)</label><input id="pe_slug" type="text" placeholder="auto-from-title"><div class="hint">Lowercase letters, numbers and dashes only.</div></div>
-          <div class="e-field"><label>Status</label><select id="pe_status"><option value="publish">Published — visible on site</option><option value="draft">Draft — hidden</option></select></div>
-          <div class="e-field e-wide"><label>Cover Image</label>
-            <div class="img-tools">
-              <span id="pe_imgPrev"></span>
-              <input type="file" id="pe_imgFile" accept="image/*">
-              <input id="pe_imgUrl" type="text" placeholder="…or paste an image URL" style="flex:1;min-width:160px">
-              <button class="mini-btn" id="pe_imgClear" type="button">Remove</button>
-            </div>
-            <div class="hint">Upload a photo (stored on this site) or paste a URL. Leave empty for a branded cover.</div>
-          </div>
-          <div class="e-field e-wide"><label>Summary (shown on cards) *</label><textarea id="pe_excerpt" rows="3"></textarea></div>
-          <div class="e-field e-wide"><label>Article Body *</label><textarea id="pe_body" rows="14"></textarea>
-            <div class="hint">Markdown-lite: <code>## Section heading</code> · <code>- list item</code> · <code>&gt; highlighted callout box</code> · <code>**bold text**</code>. Blank line between paragraphs.</div>
-          </div>
-        </div>
-        <div class="row-flex" style="margin-top:18px">
-          <button class="btn btn-teal" id="pe_save">Save Article</button>
-          <button class="mini-btn" id="pe_cancel" type="button">Cancel</button>
-        </div>
-      </div>
-      <div class="panel">
-        <div class="row-flex" style="margin-bottom:14px">
-          <h3 style="margin:0">Articles <small id="postCount" style="color:var(--gray);font-family:var(--sans);font-weight:400"></small></h3>
-          <button class="btn btn-teal btn-sm" id="postNew">+ New Article</button>
-        </div>
-        <div id="postList"></div>
-      </div>
-    </section>
-
-    <section id="sec-ann" hidden>
-      <div class="panel" id="annEditor" hidden>
-        <h3 id="annEditorTitle">New Announcement</h3>
-        <div class="e-grid">
-          <div class="e-field e-wide"><label>Announcement Title *</label><input id="ae_title" type="text"></div>
-          <div class="e-field"><label>Tag</label><select id="ae_tag"><option>Ongoing</option><option>New</option><option>Health</option><option>Notice</option></select></div>
-          <div class="e-field"><label>Date Label</label><input id="ae_date" type="text" placeholder="e.g. September 2026 / Ongoing"></div>
-          <div class="e-field e-wide"><label>Body *</label><textarea id="ae_body" rows="4"></textarea></div>
-          <div class="e-field"><label style="display:flex;gap:8px;align-items:center;font-weight:600"><input type="checkbox" id="ae_pin" style="width:16px;height:16px"> Pin to the top</label></div>
-        </div>
-        <div class="row-flex" style="margin-top:18px">
-          <button class="btn btn-teal" id="ae_save">Save Announcement</button>
-          <button class="mini-btn" id="ae_cancel" type="button">Cancel</button>
-        </div>
-      </div>
-      <div class="panel">
-        <div class="row-flex" style="margin-bottom:14px">
-          <h3 style="margin:0">Announcements <small id="annCount" style="color:var(--gray);font-family:var(--sans);font-weight:400"></small></h3>
-          <button class="btn btn-teal btn-sm" id="annNew">+ New Announcement</button>
-        </div>
-        <div id="annList"></div>
-      </div>
-    </section>
-
-    <section id="sec-tst" hidden>
-      <div class="panel">
-        <div class="row-flex">
-          <div>
-            <h3 style="margin-bottom:6px">Auto-Moderation</h3>
-            <p class="desc" id="tstModText" style="margin:0">New stories are screened automatically — criticism and 1–2★ ratings are hidden from the public until you review them.</p>
-          </div>
-          <span id="tstFlagChip" class="badge flagged" hidden></span>
-        </div>
-      </div>
-      <div class="panel" id="tstEditor" hidden>
-        <h3 id="tstEditorTitle">New Testimonial</h3>
-        <div class="e-grid">
-          <div class="e-field"><label>Name</label><input id="te_name" type="text"></div>
-          <div class="e-field"><label>Relation</label><select id="te_rel"><option>Patient</option><option>Family member</option><option>New mother</option><option>Referred by a friend</option><option>Community member</option><option>Other</option></select></div>
-          <div class="e-field"><label>Source</label><select id="te_kind"><option value="experience">Personal experience</option><option value="heard">Heard / community knowledge</option></select></div>
-          <div class="e-field"><label>Rating</label><select id="te_rating"><option value="">No rating</option><option value="5">5 ★</option><option value="4">4 ★</option><option value="3">3 ★</option><option value="2">2 ★</option><option value="1">1 ★</option></select></div>
-          <div class="e-field"><label>Date</label><input id="te_date" type="date"></div>
-          <div class="e-field"><label>Status</label><select id="te_status"><option value="publish">Publish (visible)</option><option value="unpublish">Unpublish (hidden)</option><option value="archived">Archived</option><option value="hidden">Hidden (criticism)</option></select></div>
-          <div class="e-field e-wide"><label>Story *</label><textarea id="te_msg" rows="5"></textarea></div>
-          <div class="e-field"><label style="display:flex;gap:8px;align-items:center;font-weight:600"><input type="checkbox" id="te_pin" style="width:16px;height:16px"> Pin to top</label></div>
-        </div>
-        <div class="row-flex" style="margin-top:18px">
-          <button class="btn btn-teal" id="te_save">Save Testimonial</button>
-          <button class="mini-btn" id="te_cancel" type="button">Cancel</button>
-        </div>
-      </div>
-      <div class="panel">
-        <div class="row-flex" style="margin-bottom:14px">
-          <h3 style="margin:0">Community Voices <small id="tstCount" style="color:var(--gray);font-family:var(--sans);font-weight:400"></small></h3>
-          <span style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
-            <select id="tstFilter" style="padding:9px 12px;border:1.5px solid var(--light2);border-radius:9px;font:600 13px var(--sans);background:var(--white)">
-              <option value="all">All</option><option value="publish">Live</option><option value="hidden">Hidden (criticism)</option><option value="unpublish">Unpublished</option><option value="archived">Archived</option>
-            </select>
-            <button class="btn btn-teal btn-sm" id="tstNew">+ New</button>
-          </span>
-        </div>
-        <div id="tstList"></div>
-      </div>
-    </section>
-
-    <section id="sec-settings" hidden>
-      <div class="panel">
-        <h3>Contact Details</h3>
-        <p class="desc">Change a detail once here — it updates across the entire site (header, footer, forms, maps cards, every page).</p>
-        <div class="e-grid">
-          <div class="e-field"><label>Main Phone</label><input id="s_phone" type="text"></div>
-          <div class="e-field"><label>Main Phone (dial format)</label><input id="s_phoneTel" type="text"></div>
-          <div class="e-field"><label>Second Phone</label><input id="s_phone2" type="text"></div>
-          <div class="e-field"><label>Second Phone (dial format)</label><input id="s_phone2Tel" type="text"></div>
-          <div class="e-field"><label>Email</label><input id="s_email" type="email"></div>
-          <div class="e-field"><label>WhatsApp Number (digits only, with country code)</label><input id="s_whatsapp" type="text"></div>
-          <div class="e-field"><label>Full Address</label><input id="s_address" type="text"></div>
-          <div class="e-field"><label>Short Address</label><input id="s_addressShort" type="text"></div>
-          <div class="e-field"><label>Open Hours</label><input id="s_hours" type="text"></div>
-        </div>
-      </div>
-      <div class="panel">
-        <h3>Homepage Hero</h3>
-        <p class="desc">The headline and welcome message at the top of the homepage.</p>
-        <div class="e-grid">
-          <div class="e-field e-wide"><label>Hero Headline</label><input id="s_heroTitle" type="text"></div>
-          <div class="e-field e-wide"><label>Hero Welcome Message</label><textarea id="s_heroLead" rows="3"></textarea></div>
-          <div class="e-field"><label>Site Name</label><input id="s_siteName" type="text"></div>
-          <div class="e-field"><label>Tagline</label><input id="s_tagline" type="text"></div>
-        </div>
-      </div>
-      <div class="panel">
-        <h3>Experience Popup</h3>
-        <p class="desc">When enabled, visitors who genuinely engage with the site are gently invited — once per visit, with a cooldown between visits — to share their experience or what they have heard about the hospital. New stories are screened automatically: criticism is hidden and must be published manually.</p>
-        <label style="display:flex;gap:10px;align-items:center;font:600 14px var(--sans)"><input type="checkbox" id="s_popup" style="width:17px;height:17px"> Enable the “Share your experience” popup</label>
-      </div>
-      <div class="row-flex">
-        <button class="btn btn-teal" id="settingsSave">Save All Settings</button>
-      </div>
-    </section>
-
-    <section id="sec-backup" hidden>
-      <div class="panel">
-        <h3>Export Content</h3>
-        <p class="desc">Download a single JSON file containing every post, announcement and setting. Keep it in a safe place — it is your content backup, and it can restore the whole site in any browser.</p>
-        <button class="btn btn-teal" id="bkExport">⬇ Export JSON Backup</button>
-      </div>
-      <div class="panel">
-        <h3>Import Content</h3>
-        <p class="desc">Restore from a previously exported backup file. This replaces the content currently on this site.</p>
-        <input type="file" id="bkImport" accept="application/json">
-        <div class="row-flex" style="margin-top:14px"><button class="btn btn-outline btn-sm" id="bkImportBtn">Import Selected File</button></div>
-      </div>
-      <div class="panel" style="border-color:rgba(192,57,43,.35)">
-        <h3>Reset to Original Content</h3>
-        <p class="desc">Remove all changes made in this dashboard and restore the original content that shipped with the site. This cannot be undone — export a backup first.</p>
-        <button class="btn btn-outline btn-sm" id="bkReset" style="border-color:#8e2b1f;color:#8e2b1f">Reset Site Content</button>
-      </div>
-    </section>
+    <nav class="main" id="mainNav" aria-label="Main navigation"><a class="nl " href="/">Home</a><a class="nl " href="/about">About Us</a><a class="nl " href="/services">Services</a><a class="nl " href="/blog">Blog</a><a class="nl active" href="/contact">Contact</a>
+      <span class="m-cta">
+        <a class="btn btn-teal" href="tel:+2347069588315"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg> Emergency: +234 706 958 8315</a>
+        <a class="btn btn-outline" href="/contact">Book Appointment</a>
+      </span>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mainNav" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
-</div>
+</header>
+<div class="nav-scrim" id="scrim"></div>
+<main id="main">
 
-<div class="toast" id="toast"></div>
+<section class="banner">
+  <div class="container">
+    <div class="crumb">Home / Contact</div>
+    <h1>Contact Us</h1>
+    <p>We’re here when you need us — make an enquiry, schedule a consultation, ask about our services or find your way to the hospital.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="sec-head rv"><span class="eyebrow">Get In Touch</span><h2>We Are Here to Help</h2>
+      <p>At ChiTom Rapha Hospital, your health and peace of mind are our top priorities. Whether you have questions about our medical services, need to schedule an appointment, or require specialized guidance, our dedicated care team is ready to assist you. Reach out to us today and experience compassionate clinical excellence.</p></div>
+    <div class="c-grid">
+      <div class="c-info rv-l">
+        <div class="c-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span><div><small>Reach Us</small><p>1 ChiTom Rapha Hospital Avenue, Okpoduma Nwofe Izzi LGA, 480102 Abakaliki, Nigeria.</p></div></div>
+        <div class="c-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2.5"/><path d="m22 7-10 6.5L2 7"/></svg></span><div><small>Email</small><a href="mailto:contact@chitomraphahospital.com">contact@chitomraphahospital.com</a></div></div>
+        <div class="c-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span><div><small>Call Us</small><a href="tel:+2347069588315">+234 706 958 8315</a> &nbsp;·&nbsp; <a href="tel:+2348125590397">+234 812 559 0397</a></div></div>
+        <div class="c-card"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 3.2"/></svg></span><div><small>Open Hours</small><p>24 hours medical services</p></div></div>
+        <div class="c-card" style="align-items:center"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.6 8.6 0 0 1-3.4-.7L3 21l1.8-4.6a8.4 8.4 0 1 1 16.2-4.9z"/></svg></span><div><small>WhatsApp</small><a href="https://wa.me/2347069588315" target="_blank" rel="noopener">Chat with us on WhatsApp</a></div></div>
+      </div>
+      <div class="form-card rv-r">
+        <h3>Book Consultation</h3>
+        <p>Complete the form and our team will call you back to confirm your appointment. For emergencies, please call us immediately.</p>
+        <div class="form-note" id="formNote" role="status" aria-live="polite"></div>
+        <form id="bookForm" novalidate>
+          <div class="field">
+            <label for="fn">First Name <span class="req">*</span></label>
+            <input id="fn" name="first_name" type="text" required autocomplete="given-name">
+            <div class="hint">Your first name as per your ID.</div>
+          </div>
+          <div class="field">
+            <label for="ln">Last Name <span class="req">*</span></label>
+            <input id="ln" name="last_name" type="text" required autocomplete="family-name">
+            <div class="hint">Your last name as per your ID.</div>
+          </div>
+          <div class="field">
+            <label for="em">Email Address <span class="req">*</span></label>
+            <input id="em" name="email" type="email" required autocomplete="email">
+            <div class="hint">Your email address for appointment confirmation.</div>
+          </div>
+          <div class="field">
+            <label for="ph">Phone Number <span class="req">*</span></label>
+            <div class="row2">
+              <select id="cc" name="country_code" aria-label="Country calling code"><option value="+234" selected>+234 — Nigeria</option><option value="+233">+233 — Ghana</option><option value="+44">+44 — United Kingdom</option><option value="+1">+1 — United States / Canada</option><option value="+254">+254 — Kenya</option><option value="+27">+27 — South Africa</option><option value="+61">+61 — Australia</option><option value="+49">+49 — Germany</option><option value="+33">+33 — France</option><option value="+39">+39 — Italy</option><option value="+34">+34 — Spain</option><option value="+971">+971 — United Arab Emirates</option><option value="+65">+65 — Singapore</option></select>
+              <input id="ph" name="phone" type="tel" required autocomplete="tel">
+            </div>
+            <div class="hint">Your mobile number for contact.</div>
+          </div>
+          <div class="field">
+            <label for="reason">Reason for Appointment <span class="req">*</span></label>
+            <textarea id="reason" name="reason" required></textarea>
+            <div class="hint">Please provide a brief description of why you want to see the doctor.</div>
+          </div>
+          <div class="field">
+            <label for="notes">Additional Notes</label>
+            <textarea id="notes" name="notes"></textarea>
+            <div class="hint">Any additional information or notes you want to add.</div>
+          </div>
+          <button class="btn btn-teal" type="submit" style="width:100%"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg> Submit</button>
+        </form>
+        <div class="form-success" id="formSuccess">
+          <span class="ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <h3>Request Received</h3>
+          <p>Thank you for choosing Chi-Tom Rapha Hospital &amp; Maternity. Our team will call you shortly to confirm your appointment.</p>
+          <a class="btn btn-teal" href="tel:+2347069588315"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg> Need us sooner? Call +234 706 958 8315</a>
+          <p class="fine">Prefer to talk? Call +234 706 958 8315 or +234 812 559 0397 — we’re open 24/7.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--light)">
+  <div class="container">
+    <div class="sec-head rv"><span class="eyebrow">Meet The People</span><h2>Our Team Is Ready to Help</h2></div>
+    <div class="split" style="align-items:center">
+      <div class="img-wrap rv-l"><div class="frame"><img src="assets/team-contact.jpg" alt="The team at Chi-Tom Rapha Hospital &amp; Maternity" loading="lazy"></div></div>
+      <div class="rv-r">
+        <h2 style="font-size:clamp(22px,3vw,30px);margin-bottom:14px">Get In Touch</h2>
+        <p style="color:var(--gray)">Whether you need to make an enquiry, schedule a consultation, ask about our services or find your way to the hospital, our team is ready to help.</p>
+        <ul class="why-list" style="margin-top:20px">
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span><b>1 ChiTom Rapha Hospital Avenue, Okpoduma</b><small>Nwofe Izzi LGA, 480102 Abakaliki, Nigeria</small></span></li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2.5"/><path d="m22 7-10 6.5L2 7"/></svg></span><span><b>contact@chitomraphahospital.com</b><small>Write to us anytime</small></span></li>
+          <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></span><span><b>+234 706 958 8315 · +234 812 559 0397</b><small>24 hours medical services</small></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="visit">
+  <div class="container">
+    <div class="sec-head rv"><span class="eyebrow">Get Direction</span><h2>Find Your Way to Us</h2></div>
+    <div class="map-box rv" style="min-height:400px">
+      <div class="map-fallback">
+        <div><span class="pinic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+        <b>1 ChiTom Rapha Hospital Avenue, Okpoduma Nwofe Izzi LGA, 480102 Abakaliki, Nigeria.</b><br>
+        <a class="btn btn-teal btn-sm" style="margin-top:14px" href="https://www.google.com/maps/search/?api=1&query=1 ChiTom Rapha Hospital Avenue, Okpoduma Nwofe Izzi LGA, 480102 Abakaliki, Nigeria." target="_blank" rel="noopener">Open in Google Maps</a></div>
+      </div>
+      <iframe loading="lazy" src="https://maps.google.com/maps?q=1%20ChiTom%20Rapha%20Hospital%20Avenue%2C%20Okpoduma%20Nwofe%20Izzi%20LGA%2C%20480102%20Abakaliki%2C%20Nigeria.&t=m&z=10&output=embed&iwloc=near" title="1 ChiTom Rapha Hospital Avenue, Okpoduma Nwofe Izzi LGA, 480102 Abakaliki, Nigeria."></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="emg">
+  <div class="container rv">
+    <div class="lbl">Medical Emergency?</div>
+    <h2>Call Us Immediately</h2>
+    <a class="num" href="tel:+2347069588315">+234 706 958 8315</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container foot-grid">
+    <div class="foot-brand">
+      <a class="brand" href="/">
+        <img src="assets/logo.png" alt="Chi-Tom Rapha Hospital &amp; Maternity logo">
+        <span><span class="brand-t" style="color:#fff">Chi-Tom Rapha</span><br><span class="brand-s" style="color:var(--gold)">Hospital &amp; Maternity</span></span>
+      </a>
+      <p>A hospital built on faith, service and excellence — making standard healthcare available, accessible and affordable to ALL citizens in a humane approach.</p>
+      <div class="tag">“We Care, God Heals.”</div>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <a href="/">Home</a><a href="/about">About Us</a><a href="/services">Services</a>
+      <a href="/blog">Health Insights (Blog)</a><a href="/contact">Book a Consultation</a><a href="/contact">Contact</a>
+      <a href="#" data-open-tst style="color:var(--gold);font-weight:700">Share your experience →</a>
+    </div>
+    <div>
+      <h4>Our Services</h4>
+      <a href="/services">Outpatient Department</a><a href="/services">Antenatal Clinic</a>
+      <a href="/services">Laboratory Services</a><a href="/services">Ultrasound</a>
+      <a href="/services">Surgeries</a><a href="/services">Immunization</a>
+    </div>
+    <div>
+      <h4>Get In Touch</h4>
+      <ul class="foot-contact">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>1 ChiTom Rapha Hospital Avenue, Okpoduma Nwofe Izzi LGA, 480102 Abakaliki, Nigeria.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2.5"/><path d="m22 7-10 6.5L2 7"/></svg><a href="mailto:contact@chitomraphahospital.com">contact@chitomraphahospital.com</a></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><span><a href="tel:+2347069588315">+234 706 958 8315</a> · <a href="tel:+2348125590397">+234 812 559 0397</a></span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 3.2"/></svg><span>24/7 Medical Services</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div class="container">
+      <span>© 2026 Chi-Tom Rapha Hospital &amp; Maternity. All rights reserved.</span>
+      <span>We Care, God Heals.</span>
+    </div>
+  </div>
+</footer>
+<div class="fabs">
+  <a class="fab fab-top" id="toTop" href="#" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg></a>
+  <a class="fab fab-wa" href="https://wa.me/2347069588315" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.6 8.6 0 0 1-3.4-.7L3 21l1.8-4.6a8.4 8.4 0 1 1 16.2-4.9z"/></svg></a>
+  <a class="fab fab-call" href="tel:+2347069588315" aria-label="Call emergency line"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg></a>
+</div>
 <script>
 window.CTRH_SEED = {"settings": {"siteName": "Chi-Tom Rapha Hospital & Maternity", "tagline": "We Care, God Heals.", "heroTitle": "We Care, God Heals", "heroLead": "At Chi-Tom Rapha Hospital & Maternity, we provide accessible and affordable healthcare with a humane approach—serving individuals, mothers, children and families with professional medical care, compassion and dignity.", "phone": "+234 706 958 8315", "phoneTel": "+2347069588315", "phone2": "+234 812 559 0397", "phone2Tel": "+2348125590397", "email": "contact@chitomraphahospital.com", "address": "1 ChiTom Rapha Hospital Avenue, Okpoduma Nwofe Izzi LGA, 480102 Abakaliki, Nigeria.", "addressShort": "1 Chitom Rapha Hospital Avenue, Okpoduma Agbaja", "hours": "24/7 Medical Services", "whatsapp": "2347069588315"}, "announcements": [{"id": "a1", "pinned": true, "tag": "Ongoing", "date": "Always", "title": "We are open 24 hours a day, 7 days a week", "body": "Medical services are available around the clock at Chi-Tom Rapha Hospital & Maternity — consultations, antenatal care, diagnostics and emergency care, any hour of the day. In an emergency, call +234 706 958 8315 immediately."}, {"id": "a2", "pinned": false, "tag": "New", "date": "September 2026", "title": "Request a consultation online — we call you back", "body": "Our booking form is now on this website. Tell us who you are and why you'd like to see the doctor, and our care team will call you back to confirm your appointment. No waiting on the line to leave a message."}, {"id": "a3", "pinned": false, "tag": "Health", "date": "Ongoing", "title": "Antenatal care: your journey to a safe delivery starts with one visit", "body": "Professional antenatal care and monitoring to support mothers throughout pregnancy and prepare them for a safe, informed delivery. If you are expecting, book your first visit today — the earlier you book, the more we can do for you."}, {"id": "a4", "pinned": false, "tag": "Health", "date": "Ongoing", "title": "Routine immunization for children and families", "body": "Protect the people you love from preventable diseases. We offer immunization services for eligible patients, children and families. Call us to find out which vaccines apply to your family and schedule a convenient time."}], "posts": [{"id": "p1", "slug": "antenatal-first-visit", "title": "Your First Antenatal Visit: What to Expect and How to Prepare", "category": "Maternity", "icon": "venus", "image": "assets/nurse.jpg", "date": "2026-09-21", "status": "publish", "excerpt": "Booking your first antenatal visit is one of the most important decisions of pregnancy. Here is what happens at that first appointment, what to bring, and the questions worth asking.", "body": "Pregnancy changes everything — and the first antenatal visit is where your care plan begins. It is not just a formality: it is the appointment where your baseline is set, early risks are screened for, and you get a clear picture of how your pregnancy is progressing.\n\n## Why booking early matters\n\nThe earlier you book, the more time there is to act. Early antenatal care allows your clinician to confirm the dates of your pregnancy, establish your blood pressure and blood type, check for conditions like anaemia, and start screening for infections that are treatable but only when caught in time. It also gives you a team who knows you — your history, your medicines, your concerns — from the very beginning.\n\n## What happens at your first visit\n\nExpect a conversation first. Your clinician will ask about your medical history, any current medications, your family history, and how the pregnancy has been going so far. After that, the visit typically includes:\n\n- A physical examination, including blood pressure measurement\n- Basic blood and urine tests — commonly blood group, haemoglobin (to screen for anaemia), and screening for infections such as syphilis and HIV\n- Confirmation of how far along the pregnancy is, sometimes with an ultrasound\n- A review of your nutrition, activity and any symptoms like vomiting or bleeding\n- A plan for the visits ahead, including when to return and what to watch for in between\n\nNo question is too small. This is the appointment to ask the things you have been quietly wondering about.\n\n## What to bring\n\n- Your identification\n- Any previous medical records or previous antenatal cards\n- A list of medicines, vitamins or herbal products you currently take\n- Your insurance card or NHIS card, if you have one\n- A written list of your questions — it is easy to forget them in the room\n\n## Red flags between visits\n\n> Seek medical attention promptly if you notice vaginal bleeding, a severe headache that does not settle, blurred vision, sudden swelling of the face or hands, a high fever, or — later in pregnancy — a noticeable reduction in your baby's movements. Do not wait for your next scheduled appointment.\n\nAt Chi-Tom Rapha Hospital & Maternity, our antenatal clinic is there for you at every stage — from your first booking to the day of delivery and beyond. We are open 24 hours a day, so if anything feels wrong, call +234 706 958 8315 and we will help."}, {"id": "p2", "slug": "emergency-warning-signs", "title": "When to Go to the Emergency Room: Warning Signs You Should Never Ignore", "category": "Emergency Care", "icon": "siren", "image": "assets/nurse-team.jpg", "date": "2026-09-18", "status": "publish", "excerpt": "In an emergency, the fastest decisions save lives. This guide lays out the red-flag symptoms in adults, children and pregnancy that should send you straight to emergency care — without waiting to see if it gets better.", "body": "Most people have a healthy instinct to 'wait and see' when they feel unwell. For many problems, that is sensible. But some conditions get measurably worse with every hour — and for those, the correct response is not observation. It is immediate care.\n\n## Red flags in adults\n\nGo to an emergency room immediately if you or someone with you experiences any of the following:\n\n- Chest pain, pressure or tightness, especially with sweating or breathlessness\n- Sudden difficulty breathing\n- Signs of a stroke — remember **FAST**: Face drooping, Arm weakness, Speech difficulty, Time to call. Any one of these is an emergency, even if it seems to improve\n- Heavy or uncontrollable bleeding\n- Severe abdominal pain, particularly with a rigid or swollen belly\n- A sudden, severe 'thunderclap' headache\n- Confusion, unusual drowsiness, or difficulty waking\n- A seizure, especially the first one\n- A high fever with stiff neck\n- Burns covering a large area of the body, or suspected poisoning\n\n## Red flags in children\n\nChildren can deteriorate faster than adults. Seek urgent care if a child has:\n\n- Difficulty breathing — fast breathing, grunting, or ribs pulling in with each breath\n- Signs of dehydration: very few or no wet nappies, no tears when crying, a sunken soft spot in babies\n- A fever in any baby under three months of age\n- A seizure or convulsion\n- A child who is unusually sleepy, floppy, or hard to wake\n- A serious fall — especially onto the head\n- Refusal to drink for more than a day, or repeated vomiting\n\n## Red flags in pregnancy\n\n- Vaginal bleeding at any stage of pregnancy\n- A severe headache with visual disturbance\n- Sudden swelling of the face, hands or feet\n- Painful regular contractions before term\n- Labour lasting much longer than expected\n- A noticeable reduction in your baby's movements\n\n> **When in doubt, come in.** It is always the right call. At Chi-Tom Rapha Hospital & Maternity our emergency line is open around the clock: +234 706 958 8315.\n\n## While you are on your way\n\n- Keep the person calm, sitting or lying in the most comfortable position\n- Do not give food or drink in case an operation may be needed\n- Note the time the symptoms started — it matters to the treating team\n- Bring their identification, any medicine they take, and a phone that is charged\n- If breathing stops, begin rescue breaths and keep the ambulance or driver informed of what you see\n\nNone of this is a diagnosis — it is a list of moments where waiting costs more than going. Save it, share it with your family, and keep our emergency number close."}, {"id": "p3", "slug": "child-immunization-nigeria", "title": "Protecting Your Child: The Routine Immunization Schedule in Nigeria", "category": "Prevention", "icon": "shield", "image": "assets/team-contact.jpg", "date": "2026-09-15", "status": "publish", "excerpt": "Vaccines remain the single most effective tool we have against childhood disease. Here is the national schedule, in plain language — what your child receives, when, and why each one matters.", "body": "Every year, millions of children in Nigeria are protected by routine immunization. It is quiet, unglamorous work — a few drops, a few small injections across the first year of life — but it is the single most effective shield we have against diseases that can injure or kill. Here is the national schedule in plain language.\n\n## The national schedule, month by month\n\n- **At birth:** BCG (protects against severe forms of tuberculosis), the birth dose of polio vaccine (OPV0) and the birth dose of Hepatitis B vaccine\n- **6, 10 and 14 weeks:** three doses each of the Pentavalent vaccine (which combines protection against diphtheria, pertussis/whooping cough, tetanus, Hepatitis B and Hib), polio vaccine (OPV), the pneumococcal vaccine (PCV, against pneumonia) and the rotavirus vaccine (against severe diarrhoea)\n- **6 months:** Vitamin A\n- **9 months:** the measles vaccine (first dose) and the yellow fever vaccine\n- **12–15 months:** Vitamin A again and a DPT booster dose\n- **Every 6 months until age 5:** repeat Vitamin A doses\n\n## Why each one matters\n\n- **BCG** guards against the most dangerous forms of childhood tuberculosis\n- **Pentavalent** covers five infections at once — including whooping cough, which can be life-threatening in young babies\n- **PCV** protects against pneumococcal pneumonia, one of the leading causes of childhood hospitalization\n- **Rotavirus** protects against the severe diarrhoea that dehydrates babies quickly\n- **Measles** prevents a virus whose complications — ear infection, pneumonia, brain damage — can be devastating\n- **Yellow fever** protects against a serious viral illness common in parts of Nigeria\n\n## How to keep your child on track\n\n- Book early: your child's first set of vaccines comes at 6 weeks — make that visit before the month is out\n- Keep the immunization card safe and bring it to every visit\n- A little fever or soreness at the injection site is a normal response — not a reason to stop\n- If a dose was missed, do not start over: ask about catch-up. Series can usually be completed safely later\n- Schedule all of your child's doses together so you never have to remember a single one\n\n> Immunization works best alongside the basics: good nutrition, clean water, and regular check-ups. A fully immunized child who is well fed is a child with every advantage.\n\nChi-Tom Rapha Hospital & Maternity offers immunization services for eligible patients, children and families. Call +234 706 958 8315 — we are open 24/7 — and we will map out your child's schedule with you."}, {"id": "p4", "slug": "ultrasound-in-pregnancy", "title": "Ultrasound in Pregnancy: Why It Matters and What to Expect", "category": "Diagnostics", "icon": "wave", "image": "", "date": "2026-09-10", "status": "publish", "excerpt": "The screen that shows you a heartbeat, a profile, a tiny hand — but ultrasound does far more than create memories. Here is what each scan actually checks, and why it is safe.", "body": "For many parents, the ultrasound is the moment pregnancy stops being a test result and becomes a person on a screen. But beyond the memory, ultrasound is one of the most important tools in monitoring a pregnancy — and understanding what it does can ease a lot of worry.\n\n## What ultrasound actually is\n\nAn ultrasound uses high-frequency sound waves — the same principle as a bat's echo — to create live pictures of the inside of the body. It involves no radiation, no X-rays and no known harm to you or your baby. It is painless, and the cool gel on your abdomen is the only part most people remember.\n\n## The scans, and what each one checks\n\n- **The dating scan (first trimester):** confirms how far along the pregnancy is, checks for more than one baby, and establishes a reliable due date\n- **The anatomy scan (around 18–20 weeks):** the detailed look — the baby's organs, the position of the placenta, the amount of amniotic fluid, and overall growth\n- **Growth scans (later in pregnancy):** track that your baby is growing at the expected rate, especially when other factors like blood pressure need watching\n- **Positional checks (near term):** finding out whether baby is head-down, and helping plan the safest route of delivery\n\n## What to expect at your appointment\n\n- For early scans, you may be asked to arrive with a full bladder — it gives a clearer view\n- You will lie while a small transducer is moved over your abdomen with gel\n- Most appointments take 20 to 40 minutes; if the baby is in an awkward position, you may be asked to return rather than repeating a long session\n- Your clinician will explain what the images mean for your specific care — ask anything you like\n\n> An ultrasound supports clinical assessment. The pictures matter, but your clinician's interpretation — and the plan that follows — is what guides your care.\n\nWe provide ultrasound imaging at Chi-Tom Rapha Hospital & Maternity to support clinical assessment and pregnancy-related monitoring where appropriate. Book through our contact page, or call +234 706 958 8315 any time — we are open 24 hours a day."}, {"id": "p5", "slug": "preparing-for-surgery", "title": "Preparing for Surgery: Simple Steps for a Safer, Faster Recovery", "category": "Surgery", "icon": "cross", "image": "assets/doctor-2.jpg", "date": "2026-09-05", "status": "publish", "excerpt": "Surgery feels bigger than it needs to be. The truth is that most of a smooth recovery happens before the operation — and almost all of it is in your control. Here is a practical checklist.", "body": "Ask most people what scares them about surgery and the answer is the unknown. So let's remove as much of it as we can: most of a good surgical outcome is built in the days before the operation, and most of it is within your control.\n\n## In the days before\n\n- Follow the fasting instructions you are given — usually no food or drink after midnight — exactly as stated\n- Tell your team about **every** medicine you take: tablets, injections, herbs, and especially blood thinners, which are often paused or adjusted beforehand\n- Arrange someone to take you home after discharge — you should not drive after anaesthesia\n- Set up a restful space at home: a clear path from the door, a comfortable seat or bed, water and snacks within reach\n- Pack a bag with your identification, all test results and records you have received, and the clothes you will be most comfortable coming home in\n\n## On the day\n\n- Arrive at the time given — not the earliest possible minute, not the last\n- Bring your identification and any consent paperwork you completed\n- Wear loose clothing; leave valuables and jewellery at home\n- Write down anything you still want to ask — nerves make memory unreliable, and your team would rather answer a 'simple' question than find out later you were worried\n\n## In the days after\n\n- Rest more than you think you need — healing uses energy you will not feel like you have\n- Take pain relief exactly as prescribed; well-controlled pain lets you breathe, move and sleep better\n- Keep the wound clean and dry, and change dressings as instructed\n- Start with light, easy food and plenty of fluids, then return to a normal, balanced diet\n- Move gently and steadily as advised — short, frequent walks are one of the best things you can do for circulation\n- Keep your follow-up appointment even if you feel completely fine\n\n## Seek care promptly if you notice\n\n> A fever, a wound that becomes increasingly red, warm or painful, pus or foul smell, bleeding that soaks a dressing, chest pain, or difficulty breathing after going home — any of these should be reported immediately. Do not wait for the follow-up visit.\n\nSurgical care at Chi-Tom Rapha Hospital & Maternity is supported by appropriate clinical assessment, professional preparation and post-operative care. If you have questions before your procedure, call +234 706 958 8315 — our line is open 24 hours a day."}, {"id": "p6", "slug": "malaria-in-pregnancy", "title": "Malaria in Pregnancy: Why It Is a Risk — and How to Stay Protected", "category": "Prevention", "icon": "heart", "image": "", "date": "2026-08-28", "status": "publish", "excerpt": "Malaria affects millions of people across Nigeria every year — but in pregnancy the stakes are higher for two people at once. Here is what every expectant mother should know, and the protection that is available at every antenatal visit.", "body": "Malaria is one of the most common illnesses across Nigeria, and most people treat it like a routine fever. During pregnancy, that routine attitude is exactly what needs to change — because malaria in pregnancy puts two people at risk at once: the mother and the baby she is carrying.\n\n## Why malaria in pregnancy is dangerous\n\nPregnancy changes the body in ways that make malaria more likely to strike and more likely to cause harm. The complications include:\n\n- **Anaemia in the mother** — as the parasite destroys red blood cells on top of the extra demands of pregnancy\n- **Low birth weight** — the baby not gaining as much as it should before birth\n- **Preterm delivery** — birth earlier than 37 weeks, with the risks that brings for a newborn\n- **Risk to the unborn child** — in severe cases, malaria can cross the placenta\n\nNone of this is inevitable. The difference between a mother who suffers these complications and one who does not is usually prevention.\n\n## The protection that is available\n\n- **Sleep under an insecticide-treated net (ITN)** — every night, and especially during pregnancy. This single habit blocks the majority of mosquito bites that occur at night, when the mosquitoes that carry malaria are most active\n- **Reduce mosquitoes around the home:** keep screens on windows, avoid standing water where mosquitoes breed, and use repellents as advised\n- **Attend every antenatal visit** — this is where **IPTp** happens: the recommended doses of sulfadoxine-pyrimethamine given under direct observation during your visits, which protect you against malaria infection in pregnancy as recommended by Nigeria's national guidelines\n- **Treat fever the same day** — if you develop a fever while pregnant, do not treat it at home and hope. See a clinician immediately; the treatments recommended under national guidelines are available, and early treatment protects both you and the baby\n\n## What to watch for\n\n> A fever — even a mild one — during pregnancy should be tested for malaria the same day it starts. If you have chills, sweats, body aches and fever while pregnant, seek care promptly rather than waiting to see if it passes.\n\nMalaria is preventable, and in pregnancy it is worth every step of the prevention. At Chi-Tom Rapha Hospital & Maternity, malaria screening and IPTp are part of the antenatal care we provide — and our emergency line, +234 706 958 8315, is open 24 hours a day if you ever need us urgently."}], "testimonials": []};
 (function(){
@@ -957,7 +929,7 @@ window.CTRH_SEED = {"settings": {"siteName": "Chi-Tom Rapha Hospital & Maternity
   }
   function blogCard(p){
     var cov=p.image?'<div class="b-cover"><img src="'+esc(p.image)+'" alt="" loading="lazy"></div>':coverIcon(p);
-    return '<a class="b-card rv in" href="blog.html#'+esc(p.slug)+'">'+cov
+    return '<a class="b-card rv in" href="/blog#'+esc(p.slug)+'">'+cov
       +'<div class="b-body"><span class="an-tag">'+esc(p.category||'Health')+'</span>'
       +'<h3>'+esc(p.title)+'</h3><p>'+esc(p.excerpt)+'</p>'
       +'<small>'+fmtDate(p.date)+' · '+readMin(p.body)+' min read</small></div></a>';
@@ -1017,9 +989,26 @@ window.CTRH_SEED = {"settings": {"siteName": "Chi-Tom Rapha Hospital & Maternity
     if(!posts.length){var sec=host.closest('section');if(sec)sec.style.display='none';return;}
     host.innerHTML=posts.slice(0,3).map(blogCard).join('');
   }
+  /* published stories: server list + this browser's freshly shared ones (so a
+     story appears here the moment it is submitted, even before a round-trip) */
+  function publishedTst(){
+    var s=store();
+    var all=(s.testimonials||[]).filter(function(t){return t.status==='publish';});
+    if(REMOTE_OK){
+      try{
+        var loc=JSON.parse(localStorage.getItem(K))||{};
+        (loc.testimonials||[]).forEach(function(t){
+          if(t.status!=='publish')return;
+          var seen=(s.testimonials||[]).some(function(r){return r.id===t.id;});
+          if(!seen)all.push(t);
+        });
+      }catch(e){}
+    }
+    return all;
+  }
   function renderTst(){
     var host=document.querySelector('[data-render-tst]');if(!host)return;
-    var all=(store().testimonials||[]).filter(function(t){return t.status==='publish';});
+    var all=publishedTst();
     var countEl=document.querySelector('[data-tst-count]');
     if(countEl)countEl.textContent=all.length+(all.length===1?' story':' stories')+' shared';
     if(!all.length){
@@ -1029,7 +1018,7 @@ window.CTRH_SEED = {"settings": {"siteName": "Chi-Tom Rapha Hospital & Maternity
     all.sort(function(a,b){return tstScore(b)-tstScore(a);});
     var html=tstCard(all[0],true);
     for(var i=1;i<all.length&&i<6;i++)html+=tstCard(all[i],false);
-    if(all.length>7)html+='<div class="tst-more rv in">+ '+(all.length-7)+' more stories shared privately</div>';
+    if(all.length>7)html+='<div class="tst-more rv in">+ '+(all.length-7)+' more stories from our community</div>';
     host.innerHTML=html;
   }
   function renderAnnMini(){
@@ -1134,7 +1123,7 @@ window.CTRH_SEED = {"settings": {"siteName": "Chi-Tom Rapha Hospital & Maternity
       +'<div class="tst-pop-body" id="tstPopBody">'
       +'<span class="eyebrow">Community Voices</span>'
       +'<h3 id="tstPopTitle">Your story could help the next person</h3>'
-      +'<p class="tst-pop-sub">Behind every visit is a family making a decision. Tell us about your experience at Chi-Tom Rapha Hospital — or what you have heard from someone who has been — and your story may appear in our Community Voices section.</p>'
+      +'<p class="tst-pop-sub">Behind every visit is a family making a decision. Tell us about your experience at Chi-Tom Rapha Hospital — or what you have heard from someone who has been — and your story will appear in our Community Voices section.</p>'
       +'<form id="tstPopForm">'
       +'<div class="tst-radios">'
       +'<label class="tst-radio"><input type="radio" name="tkind" value="experience" checked><span>I want to share my own experience</span></label>'
@@ -1144,7 +1133,7 @@ window.CTRH_SEED = {"settings": {"siteName": "Chi-Tom Rapha Hospital & Maternity
       +'<div class="e-field"><label>You are a…</label><select id="tstRel"><option>Patient</option><option>Family member</option><option>New mother</option><option>Referred by a friend</option><option>Community member</option><option>Other</option></select></div>'
       +'<div class="e-field" id="tstRateWrap"><label>Your rating</label><div class="tst-rate" id="tstRate" role="radiogroup" aria-label="Rating"></div><p class="tst-rate-err" id="tstRateErr" hidden>Please tap a star to rate your experience.</p></div>'
       +'<div class="e-field"><label>Your story *</label><textarea id="tstMsg" rows="4" placeholder="What happened? How was the care? Who helped? What stood out to you?"></textarea><p class="tst-rate-err" id="tstMsgErr" hidden>Please write a little more — at least a couple of sentences.</p></div>'
-      +'<p class="tst-pop-note">Every story is read by our team before it is published.</p>'
+      +'<p class="tst-pop-note">Your story will appear in our Community Voices section on this page.</p>'
       +'<div class="tst-pop-actions"><button class="btn btn-teal" type="submit">Share my story</button><button class="btn btn-ghost" type="button" id="tstLater">Maybe later</button></div>'
       +'<button class="tst-pop-no" type="button" id="tstNo">No thanks</button>'
       +'</form>'
@@ -1179,29 +1168,32 @@ window.CTRH_SEED = {"settings": {"siteName": "Chi-Tom Rapha Hospital & Maternity
       wirePop();
     }
     popOpen=true;lastFocus=document.activeElement;
-    popEl.style.display='flex';
-    requestAnimationFrame(function(){popEl.classList.add('show');});
+    var ov=popEl.querySelector('.tst-pop-overlay');
+    ov.style.display='flex';
+    requestAnimationFrame(function(){requestAnimationFrame(function(){ov.classList.add('show');});});
     document.body.style.overflow='hidden';
-    var f=popEl.querySelector('input[type=radio]');if(f)f.focus();
+    var f=ov.querySelector('input[type=radio]');if(f)f.focus();
   }
   function closeTstPopup(suppressMs){
     if(!popOpen)return;
-    popOpen=false;popEl.classList.remove('show');
+    popOpen=false;
+    var ov2=popEl.querySelector('.tst-pop-overlay');
+    ov2.classList.remove('show');
     document.body.style.overflow='';
     if(suppressMs){
       try{localStorage.setItem('ctrh_tst_popup',JSON.stringify({suppressedUntil:Date.now()+suppressMs}));}catch(e){}
     }
-    setTimeout(function(){if(popEl&&!popOpen)popEl.style.display='none';},260);
+    setTimeout(function(){if(popEl&&!popOpen)ov2.style.display='none';},260);
     if(lastFocus&&lastFocus.focus)lastFocus.focus();
   }
   function wirePop(){
-    document.getElementById('tstPopX').addEventListener('click',function(){closeTstPopup(7*86400000);});
-    document.getElementById('tstLater').addEventListener('click',function(){closeTstPopup(7*86400000);});
-    document.getElementById('tstNo').addEventListener('click',function(){closeTstPopup(60*86400000);});
-    document.getElementById('tstPopOverlay').addEventListener('click',function(e){if(e.target===this)closeTstPopup(7*86400000);});
+    document.getElementById('tstPopX').addEventListener('click',function(){closeTstPopup(72*3600000);});
+    document.getElementById('tstLater').addEventListener('click',function(){closeTstPopup(72*3600000);});
+    document.getElementById('tstNo').addEventListener('click',function(){closeTstPopup(30*86400000);});
+    document.getElementById('tstPopOverlay').addEventListener('click',function(e){if(e.target===this)closeTstPopup(72*3600000);});
     document.addEventListener('keydown',function(ev){
       if(!popOpen)return;
-      if(ev.key==='Escape')closeTstPopup(7*86400000);
+      if(ev.key==='Escape')closeTstPopup(72*3600000);
       if(ev.key==='Tab'){
         var list=[];
         var cands=popEl.querySelectorAll('button, input, select, textarea');
@@ -1242,7 +1234,7 @@ window.CTRH_SEED = {"settings": {"siteName": "Chi-Tom Rapha Hospital & Maternity
         document.getElementById('tstPopBody').innerHTML=
           '<div class="tst-success"><span class="tst-success-ic">✓</span>'
           +'<h3>Thank you — your story has been received</h3>'
-          +'<p>Our team reads every story carefully. You may see it in our <b>Community Voices</b> section very soon.</p>'
+          +'<p>Thank you for helping the next family walk in with confidence. Your story is now part of our <b>Community Voices</b>.</p>'
           +'<button class="btn btn-teal" type="button" id="tstDone">Done</button></div>';
         document.getElementById('tstDone').addEventListener('click',function(){closeTstPopup(30*86400000);});
       });
@@ -1270,448 +1262,111 @@ window.CTRH_SEED = {"settings": {"siteName": "Chi-Tom Rapha Hospital & Maternity
     setTimeout(function(){
       function tick(){
         if(opened)return;
-        if(engaged){opened=true;setTimeout(openTstPopup,1200);return;}
+        if(engaged||Date.now()-t0>45000){opened=true;setTimeout(openTstPopup,1200);return;}
         if(Date.now()-t0>75000)return;
-        setTimeout(tick,4000);
+        setTimeout(tick,3000);
       }
       tick();
-    },15000);
+    },12000);
   })();
 })();</script>
 <script>
+document.documentElement.classList.add('js');
 (function(){
-  var C=window.CTRH, TOKK='ctrh_admin_token';
-  var $=function(s){return document.querySelector(s);};
-  var toastEl=$('#toast');
-  function toast(msg){toastEl.textContent=msg;toastEl.classList.add('show');
-    clearTimeout(toastEl._t);toastEl._t=setTimeout(function(){toastEl.classList.remove('show');},2800);}
-  function esc(s){return C.esc(s);}
-  function uid(){return 'x'+Date.now().toString(36)+Math.random().toString(36).slice(2,6);}
-  function clone(o){return JSON.parse(JSON.stringify(o));}
-
-  /* ---- backend (PHP API on the host; identical contract) ---- */
-  function token(){try{return sessionStorage.getItem(TOKK)||'';}catch(e){return '';}}
-  function api(action,opts){
-    opts=opts||{};
-    var h=opts.headers||{};
-    if(opts.auth)h['Authorization']='Bearer '+token();
-    if(opts.body)h['Content-Type']='application/json';
-    return fetch('/api/index.php?action='+action,{method:opts.method||'GET',headers:h,body:opts.body||undefined})
-      .then(function(r){return r.json();})
-      .catch(function(){return null;});
+  var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* header scroll state */
+  var head = document.querySelector('.site-head');
+  var topBtn = document.getElementById('toTop');
+  function onScroll(){
+    if(head) head.classList.toggle('scrolled', window.scrollY > 10);
+    if(topBtn) topBtn.classList.toggle('show', window.scrollY > 600);
   }
-
-  var REMOTE=null, REMOTE_OK=false;
-  function localStore(){return C.load();}
-  function store(){return (REMOTE_OK&&REMOTE)?REMOTE:localStore();}
-  function saveAll(s){
-    if(!REMOTE_OK){toast('The site backend is not reachable — changes could not be saved.');return Promise.resolve(false);}
-    return api('save',{method:'POST',auth:true,body:JSON.stringify({
-      settings:s.settings,posts:s.posts,announcements:s.announcements,testimonials:s.testimonials
-    })}).then(function(d){
-      if(d&&d.ok){REMOTE=s;return true;}
-      toast(d&&d.error?d.error:'Could not save — please try again.');
-      return false;
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  /* mobile nav */
+  var tg = document.getElementById('navToggle'), nav = document.getElementById('mainNav'),
+      scrim = document.getElementById('scrim');
+  function closeNav(){ nav.classList.remove('open'); scrim.classList.remove('show');
+    tg.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+  if(tg && nav){
+    tg.addEventListener('click', function(){
+      var open = nav.classList.toggle('open');
+      scrim.classList.toggle('show', open);
+      tg.setAttribute('aria-expanded', open ? 'true':'false');
+      document.body.style.overflow = open ? 'hidden' : '';
     });
+    scrim.addEventListener('click', closeNav);
+    nav.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeNav); });
   }
-
-  /* ---- login (server-verified) ---- */
-  var login=$('#admLogin'),app=$('#admApp');
-  function showApp(){login.hidden=true;app.hidden=false;renderAll();}
-  function showLogin(){app.hidden=true;login.hidden=false;$('#admPass').value='';}
-  function enter(){
-    api('admin_content',{auth:true}).then(function(d){
-      if(d&&d.ok&&d.content&&d.content.settings){
-        REMOTE=d.content;REMOTE_OK=true;
-        showApp();
-      }else{
-        try{sessionStorage.removeItem(TOKK);}catch(e){}
-        $('#admErr').textContent=d&&d.error?d.error:'The site backend could not be verified. Open this page on the live website.';
-        $('#admErr').style.display='block';
-        showLogin();
-      }
-    });
-  }
-  try{
-    if(token())enter();else showLogin();
-  }catch(e){showLogin();}
-  $('#admLoginForm').addEventListener('submit',function(e){
-    e.preventDefault();
-    api('login',{method:'POST',body:JSON.stringify({password:$('#admPass').value})}).then(function(d){
-      if(d&&d.ok){
-        try{sessionStorage.setItem(TOKK,d.token);}catch(err){}
-        $('#admErr').style.display='none';
-        enter();
-      }else{
-        $('#admErr').textContent=(d&&d.error)?d.error:'The site backend could not be reached. Open this page on the live website.';
-        $('#admErr').style.display='block';
-      }
-    });
-  });
-  $('#admLogout').addEventListener('click',function(){
-    try{sessionStorage.removeItem(TOKK);}catch(e){}
-    REMOTE=null;REMOTE_OK=false;
-    showLogin();
-  });
-
-  /* ---- section nav ---- */
-  var titles={overview:['Overview','Everything about your site content, in one place.'],
-    posts:['Health Insights','Write, edit and publish articles for the blog.'],
-    ann:['Announcements','Short updates that appear on the homepage.'],
-    tst:['Testimonials','Community voices — moderation, curation and publishing.'],
-    settings:['Site Settings','Contact details, hero message and the experience popup.'],
-    backup:['Backup & Restore','Export, import or reset all site content.']};
-  function go(sec){
-    var btns=document.querySelectorAll('.adm-navbtn[data-sec]');
-    for(var i=0;i<btns.length;i++)btns[i].classList.toggle('on',btns[i].getAttribute('data-sec')===sec);
-    var keys=Object.keys(titles);
-    for(var j=0;j<keys.length;j++){
-      var el=$('#sec-'+keys[j]);if(el)el.hidden=(keys[j]!==sec);
+  /* reveal on scroll */
+  var rvs = document.querySelectorAll('.rv');
+  if('IntersectionObserver' in window && !rm){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+    rvs.forEach(function(el){ io.observe(el); });
+  } else { rvs.forEach(function(el){ el.classList.add('in'); }); }
+  /* counters */
+  var nums = document.querySelectorAll('[data-count]');
+  function animCount(el){
+    var target = parseFloat(el.getAttribute('data-count')),
+        sfx = el.getAttribute('data-suffix') || '', dur = 1300, t0 = null;
+    if(rm){ el.innerHTML = target + '<span class="sfx">' + sfx + '</span>'; return; }
+    function tick(t){
+      if(!t0) t0 = t;
+      var p = Math.min((t - t0)/dur, 1), e = 1 - Math.pow(1-p, 3);
+      el.innerHTML = Math.round(target * e) + '<span class="sfx">' + sfx + '</span>';
+      if(p < 1) requestAnimationFrame(tick);
     }
-    $('#admTitle').textContent=titles[sec][0];
-    $('#admSub').textContent=titles[sec][1];
-    $('#admNewTop').style.display=(sec==='posts'||sec==='overview')?'inline-flex':'none';
-    window.scrollTo(0,0);
+    requestAnimationFrame(tick);
   }
-  var navbtns=document.querySelectorAll('.adm-navbtn[data-sec]');
-  for(var n=0;n<navbtns.length;n++)(function(b){
-    b.addEventListener('click',function(){go(b.getAttribute('data-sec'));});
-  })(navbtns[n]);
-  var gotos=document.querySelectorAll('[data-goto]');
-  for(var g=0;g<gotos.length;g++)(function(b){
-    b.addEventListener('click',function(){go(b.getAttribute('data-goto'));});
-  })(gotos[g]);
-
-  function renderAll(){renderOverview();renderPosts();renderAnn();renderTst();fillSettings();}
-
-  /* ---- overview ---- */
-  function renderOverview(){
-    var s=store();
-    $('#stPub').textContent=(s.posts||[]).filter(function(p){return p.status!=='draft';}).length;
-    $('#stDraft').textContent=(s.posts||[]).filter(function(p){return p.status==='draft';}).length;
-    $('#stAnn').textContent=(s.announcements||[]).length;
-    $('#stTst').textContent=(s.testimonials||[]).filter(function(t){return t.status==='publish';}).length;
-    $('#stKb').textContent=REMOTE_OK?'server':'local';
-  }
-
-  /* ---- posts ---- */
-  var editingId=null, peImg='';
-  function slugify(t){return String(t).toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'').slice(0,60);}
-  function renderPosts(){
-    var s=store();
-    var list=(s.posts||[]).slice().sort(function(a,b){return String(b.date||'').localeCompare(String(a.date||''));});
-    $('#postCount').textContent='('+list.length+' total)';
-    if(!list.length){$('#postList').innerHTML='<p class="desc">No articles yet — click “+ New Article” to write the first one.</p>';return;}
-    $('#postList').innerHTML=list.map(function(p){
-      var thumb=p.image?'<img class="thumb" src="'+esc(p.image)+'" alt="">'
-        :'<span class="thumb cov">'+C.icon(p.icon||'heart')+'</span>';
-      return '<div class="item-row" data-id="'+esc(p.id)+'">'+thumb
-        +'<div class="tt"><b>'+esc(p.title)+'</b><small>'+esc(p.category||'General')+' · '+esc(C.fmtDate(p.date))+' · '+C.readMin(p.body)+' min</small></div>'
-        +'<span class="badge '+(p.status==='draft'?'draft':'pub')+'">'+(p.status==='draft'?'Draft':'Live')+'</span>'
-        +'<span class="acts"><button class="mini-btn" data-act="edit">Edit</button><button class="mini-btn danger" data-act="del">Delete</button></span></div>';
-    }).join('');
-    var rows=$('#postList').querySelectorAll('.item-row');
-    for(var i=0;i<rows.length;i++)(function(row){
-      var btns=row.querySelectorAll('[data-act]');
-      for(var b=0;b<btns.length;b++)(function(btn){
-        btn.addEventListener('click',function(){
-          var id=row.getAttribute('data-id');
-          if(btn.getAttribute('data-act')==='edit'){openEditor(id);return;}
-          var s2=clone(store());
-          s2.posts=s2.posts.filter(function(p){return p.id!==id;});
-          saveAll(s2).then(function(ok){if(ok){toast('Article deleted');renderPosts();renderOverview();}});
-        });
-      })(btns[b]);
-    })(rows[i]);
-  }
-  function openEditor(id){
-    var s=store();
-    var p=null;
-    if(id){var found=(s.posts||[]).filter(function(x){return x.id===id;});p=found.length?found[0]:null;}
-    editingId=id||null;peImg=p?p.image:'';
-    $('#postEditorTitle').textContent=p?'Edit Article':'New Article';
-    $('#pe_title').value=p?p.title:'';
-    $('#pe_cat').value=p?(p.category||'General Health'):'General Health';
-    $('#pe_date').value=p?p.date:new Date().toISOString().slice(0,10);
-    $('#pe_slug').value=p?p.slug:'';
-    $('#pe_status').value=p?p.status:'publish';
-    $('#pe_imgUrl').value=(p&&/^(https?:\/\/|data:)/.test(p.image||''))?p.image:'';
-    $('#pe_excerpt').value=p?p.excerpt:'';
-    $('#pe_body').value=p?p.body:'';
-    drawImgPrev();
-    $('#postEditor').hidden=false;
-    $('#postEditor').scrollIntoView({behavior:'smooth',block:'start'});
-  }
-  function drawImgPrev(){
-    var el=$('#pe_imgPrev');
-    el.innerHTML=peImg?'<img class="img-prev" src="'+esc(peImg)+'" alt="">':'<span class="img-none">no image</span>';
-  }
-  $('#pe_imgFile').addEventListener('change',function(e){
-    var f=e.target.files[0];if(!f)return;
-    if(f.size>1500000){toast('Image is large — try one under 1.5 MB, or paste a URL instead.');return;}
-    var r=new FileReader();
-    r.onload=function(){peImg=r.result;drawImgPrev();};
-    r.readAsDataURL(f);
-    e.target.value='';
-  });
-  $('#pe_imgUrl').addEventListener('input',function(){peImg=$('#pe_imgUrl').value.trim();drawImgPrev();});
-  $('#pe_imgClear').addEventListener('click',function(){peImg='';$('#pe_imgUrl').value='';drawImgPrev();});
-  $('#pe_cancel').addEventListener('click',function(){$('#postEditor').hidden=true;editingId=null;});
-  function newPostBtn(){
-    go('posts');
-    openEditor(null);
-  }
-  $('#postNew').addEventListener('click',newPostBtn);
-  $('#admNewTop').addEventListener('click',newPostBtn);
-  $('#pe_save').addEventListener('click',function(){
-    var title=$('#pe_title').value.trim(),body=$('#pe_body').value.trim(),excerpt=$('#pe_excerpt').value.trim();
-    if(!title||!body){toast('Title and body are required.');return;}
-    var s2=clone(store());
-    var cat=$('#pe_cat').value;
-    var date=$('#pe_date').value||new Date().toISOString().slice(0,10);
-    var slug=($('#pe_slug').value.trim()||slugify(title)).toLowerCase().replace(/[^a-z0-9-]/g,'-');
-    var icons={'Maternity':'venus','Emergency Care':'siren','Prevention':'shield','Diagnostics':'wave','Surgery':'cross','General Health':'heart'};
-    var post={id:editingId||uid(),slug:slug,title:title,category:cat,icon:icons[cat]||'heart',
-      image:peImg,date:date,status:$('#pe_status').value,
-      excerpt:excerpt||body.slice(0,180).replace(/\s+/g,' ')+'…',body:body};
-    if(editingId){
-      s2.posts=s2.posts.map(function(p){return p.id===editingId?post:p;});
-    }else{
-      var dup=(s2.posts||[]).some(function(p){return p.slug===slug;});
-      if(dup)slug=slug+'-'+Date.now().toString(36).slice(-4),post.slug=slug;
-      s2.posts=(s2.posts||[]).concat([post]);
-    }
-    saveAll(s2).then(function(ok){
-      if(ok){
-        toast(post.status==='draft'?'Draft saved':'Article published to the site');
-        $('#postEditor').hidden=true;editingId=null;
-        renderPosts();renderOverview();
-      }
-    });
-  });
-
-  /* ---- announcements ---- */
-  var annId=null;
-  function renderAnn(){
-    var s=store();
-    var list=(s.announcements||[]).slice();
-    $('#annCount').textContent='('+list.length+' total)';
-    if(!list.length){$('#annList').innerHTML='<p class="desc">No announcements — click “+ New Announcement”.</p>';return;}
-    $('#annList').innerHTML=list.map(function(a){
-      return '<div class="item-row" data-id="'+esc(a.id)+'">'
-        +'<span class="thumb cov">'+C.icon('mail')+'</span>'
-        +'<div class="tt"><b>'+esc(a.title)+'</b><small>'+(a.pinned?'★ Pinned · ':'')+esc(a.tag||'Update')+' · '+esc(a.date||'')+'</small></div>'
-        +'<span class="acts"><button class="mini-btn" data-act="edit">Edit</button><button class="mini-btn danger" data-act="del">Delete</button></span></div>';
-    }).join('');
-    var rows=$('#annList').querySelectorAll('.item-row');
-    for(var i=0;i<rows.length;i++)(function(row){
-      var btns=row.querySelectorAll('[data-act]');
-      for(var b=0;b<btns.length;b++)(function(btn){
-        btn.addEventListener('click',function(){
-          var id=row.getAttribute('data-id');
-          if(btn.getAttribute('data-act')==='edit'){
-            var s2=store();
-            var found=(s2.announcements||[]).filter(function(x){return x.id===id;});
-            if(!found.length)return;
-            var a=found[0];
-            annId=id;
-            $('#annEditorTitle').textContent='Edit Announcement';
-            $('#ae_title').value=a.title;$('#ae_tag').value=a.tag||'Notice';
-            $('#ae_date').value=a.date||'';$('#ae_body').value=a.body;$('#ae_pin').checked=!!a.pinned;
-            $('#annEditor').hidden=false;$('#annEditor').scrollIntoView({behavior:'smooth'});
-            return;
-          }
-          var s3=clone(store());
-          s3.announcements=s3.announcements.filter(function(x){return x.id!==id;});
-          saveAll(s3).then(function(ok){if(ok){toast('Announcement deleted');renderAnn();renderOverview();}});
-        });
-      })(btns[b]);
-    })(rows[i]);
-  }
-  $('#annNew').addEventListener('click',function(){
-    annId=null;
-    $('#annEditorTitle').textContent='New Announcement';
-    $('#ae_title').value='';$('#ae_tag').value='Notice';$('#ae_date').value='';
-    $('#ae_body').value='';$('#ae_pin').checked=false;
-    $('#annEditor').hidden=false;$('#annEditor').scrollIntoView({behavior:'smooth'});
-  });
-  $('#ae_cancel').addEventListener('click',function(){$('#annEditor').hidden=true;annId=null;});
-  $('#ae_save').addEventListener('click',function(){
-    var title=$('#ae_title').value.trim(),body=$('#ae_body').value.trim();
-    if(!title||!body){toast('Title and body are required.');return;}
-    var s2=clone(store());
-    var a={id:annId||uid(),title:title,body:body,tag:$('#ae_tag').value,
-      date:$('#ae_date').value.trim()||'Ongoing',pinned:$('#ae_pin').checked};
-    if(annId){s2.announcements=s2.announcements.map(function(x){return x.id===annId?a:x;});}
-    else s2.announcements=[a].concat(s2.announcements);
-    saveAll(s2).then(function(ok){
-      if(ok){toast('Announcement published to the homepage');$('#annEditor').hidden=true;annId=null;renderAnn();renderOverview();}
-    });
-  });
-
-  /* ---- testimonials ---- */
-  var tstId=null, tstFilterVal='all';
-  var TST_STATUS_LBL={publish:'Live',unpublish:'Unpublished',archived:'Archived',hidden:'Hidden'};
-  function renderTst(){
-    var s=store();
-    var list=s.testimonials||[];
-    var hiddenN=list.filter(function(t){return t.status==='hidden';}).length;
-    var chip=$('#tstFlagChip');
-    if(hiddenN){chip.hidden=false;chip.textContent=hiddenN+' criticism hidden';}
-    else{chip.hidden=true;}
-    $('#tstModText').textContent=hiddenN
-      ? hiddenN+' stor'+(hiddenN===1?'y is':'ies are')+' flagged as criticism and hidden from the public. Review them below — publish only what you stand behind.'
-      : 'No criticism pending. New stories are screened automatically: criticism and 1–2★ ratings are hidden from the public until you review them.';
-    $('#navTstCount').textContent=list.length;
-    var f=tstFilterVal;
-    var shown=list.filter(function(t){return f==='all'||t.status===f;})
-      .sort(function(a,b){return (b.pinned?1:0)-(a.pinned?1:0)||C.tstScore(b)-C.tstScore(a);});
-    $('#tstCount').textContent='('+list.length+' total)';
-    if(!shown.length){
-      $('#tstList').innerHTML='<p class="desc">Nothing here yet. Visitors can share stories from the Community Voices section on the site, or add one manually.</p>';
-      return;
-    }
-    $('#tstList').innerHTML=shown.map(function(t){
-      var stars=t.rating?'<span style="color:var(--gold)">'+'★'.repeat(t.rating)+'</span>':'—';
-      var badges='<span class="badge '+(t.status==='publish'?'pub':'draft')+'">'+(TST_STATUS_LBL[t.status]||t.status)+'</span>'
-        +(t.flagged?'<span class="badge flagged">Criticism</span>':'')
-        +(t.pinned?'<span class="badge pin">Pinned</span>':'');
-      return '<div class="item-row" data-id="'+esc(t.id)+'">'
-        +'<span class="thumb cov">'+C.icon('heart')+'</span>'
-        +'<div class="tt"><b>'+esc(t.name||'Anonymous')+' <small style="color:var(--gray);font-weight:400">· '+esc(t.relation||'')+' · '+(t.kind==='experience'?'experience':'heard')+' · '+stars+' · '+esc(C.fmtDate(t.date))+'</small></b>'
-        +'<span class="tst-row-msg">“'+esc(t.message)+'”</span></div>'
-        +'<span style="display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;max-width:200px">'+badges+'</span>'
-        +'<span class="acts" style="flex-direction:column;align-items:stretch;gap:6px;max-width:118px">'
-        +'<button class="mini-btn" data-act="pin">'+(t.pinned?'Unpin':'Pin')+'</button>'
-        +'<button class="mini-btn" data-act="pub">'+(t.status==='publish'?'Unpublish':'Publish')+'</button>'
-        +'<button class="mini-btn" data-act="arch">'+(t.status==='archived'?'Restore':'Archive')+'</button>'
-        +'<button class="mini-btn" data-act="edit">Edit</button>'
-        +'<button class="mini-btn danger" data-act="del">Delete</button>'
-        +'</span></div>';
-    }).join('');
-    var rows=$('#tstList').querySelectorAll('.item-row');
-    for(var i=0;i<rows.length;i++)(function(row){
-      var btns=row.querySelectorAll('[data-act]');
-      for(var b=0;b<btns.length;b++)(function(btn){
-        btn.addEventListener('click',function(){
-          var id=row.getAttribute('data-id');
-          if(btn.getAttribute('data-act')==='edit'){openTstEditor(id);return;}
-          var s2=clone(store());
-          var idx=-1;
-          for(var x=0;x<(s2.testimonials||[]).length;x++){if(s2.testimonials[x].id===id){idx=x;break;}}
-          if(idx<0)return;
-          var t=s2.testimonials[idx];
-          var act=btn.getAttribute('data-act');
-          if(act==='del'){
-            if(!confirm('Delete this story permanently?'))return;
-            s2.testimonials=s2.testimonials.filter(function(x){return x.id!==id;});
-            saveAll(s2).then(function(ok){if(ok){toast('Story deleted');renderTst();renderOverview();}});
-            return;
-          }
-          if(act==='pin')t.pinned=!t.pinned;
-          else if(act==='pub')t.status=(t.status==='publish')?'unpublish':'publish';
-          else if(act==='arch')t.status=(t.status==='archived')?'unpublish':'archived';
-          saveAll(s2).then(function(ok){if(ok){toast('Updated');renderTst();renderOverview();}});
-        });
-      })(btns[b]);
-    })(rows[i]);
-  }
-  function openTstEditor(id){
-    var s=store();
-    var t=null;
-    if(id){var found=(s.testimonials||[]).filter(function(x){return x.id===id;});t=found.length?found[0]:null;}
-    tstId=id||null;
-    $('#tstEditorTitle').textContent=t?'Edit Testimonial':'New Testimonial';
-    $('#te_name').value=t?t.name:'';
-    $('#te_rel').value=t?(t.relation||'Patient'):'Patient';
-    $('#te_kind').value=t?t.kind:'experience';
-    $('#te_rating').value=(t&&t.rating)?String(t.rating):'';
-    $('#te_date').value=t?t.date:new Date().toISOString().slice(0,10);
-    $('#te_status').value=t?t.status:'publish';
-    $('#te_pin').checked=!!(t&&t.pinned);
-    $('#te_msg').value=t?t.message:'';
-    $('#tstEditor').hidden=false;
-    $('#tstEditor').scrollIntoView({behavior:'smooth'});
-  }
-  $('#tstNew').addEventListener('click',function(){openTstEditor(null);});
-  $('#te_cancel').addEventListener('click',function(){$('#tstEditor').hidden=true;tstId=null;});
-  $('#tstFilter').addEventListener('change',function(){tstFilterVal=$('#tstFilter').value;renderTst();});
-  $('#te_save').addEventListener('click',function(){
-    var msg=$('#te_msg').value.trim();
-    if(!msg){toast('Story text is required.');return;}
-    var rating=$('#te_rating').value?parseInt($('#te_rating').value,10):null;
-    var s2=clone(store());
-    var t={id:tstId||('t'+Date.now().toString(36)+Math.random().toString(36).slice(2,5)),
-      name:$('#te_name').value.trim(),relation:$('#te_rel').value,kind:$('#te_kind').value,
-      rating:rating,message:msg,
-      date:$('#te_date').value||new Date().toISOString().slice(0,10),
-      pinned:$('#te_pin').checked,status:$('#te_status').value,flagged:false};
-    var exists=!!tstId&&(s2.testimonials||[]).some(function(x){return x.id===tstId;});
-    if(exists){s2.testimonials=s2.testimonials.map(function(x){return x.id===t.id?t:x;});}
-    else{s2.testimonials=(s2.testimonials||[]).concat([t]);}
-    saveAll(s2).then(function(ok){
-      if(ok){toast('Saved');$('#tstEditor').hidden=true;tstId=null;renderTst();renderOverview();}
-    });
-  });
-
-  /* ---- settings ---- */
-  function fillSettings(){
-    var st=store().settings;
-    var keys=['phone','phoneTel','phone2','phone2Tel','email','whatsapp','address','addressShort','hours','heroTitle','heroLead','siteName','tagline'];
-    for(var i=0;i<keys.length;i++){var el=$('#s_'+keys[i]);if(el)el.value=st[keys[i]]||'';}
-    $('#s_popup').checked=st.popup!==false;
-  }
-  $('#settingsSave').addEventListener('click',function(){
-    var s2=clone(store()),st=s2.settings;
-    var keys=['phone','phoneTel','phone2','phone2Tel','email','whatsapp','address','addressShort','hours','heroTitle','heroLead','siteName','tagline'];
-    for(var i=0;i<keys.length;i++){var el=$('#s_'+keys[i]);if(el&&el.value.trim())st[keys[i]]=el.value.trim();}
-    st.popup=$('#s_popup').checked;
-    saveAll(s2).then(function(ok){
-      if(ok){toast('Settings saved — the whole site now shows these details');fillSettings();}
-    });
-  });
-
-  /* ---- backup ---- */
-  $('#bkExport').addEventListener('click',function(){
-    fetch('/api/index.php?action=backup',{headers:{'Authorization':'Bearer '+token()}})
-      .then(function(r){return r.ok?r.blob():null;})
-      .then(function(b){
-        if(!b){toast('Could not download the backup from the server.');return;}
-        var a=document.createElement('a');
-        a.href=URL.createObjectURL(b);
-        a.download='chitom-rapha-content-'+new Date().toISOString().slice(0,10)+'.json';
-        document.body.appendChild(a);a.click();a.remove();
-        toast('Backup downloaded');
+  if('IntersectionObserver' in window){
+    var io2 = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ animCount(e.target); io2.unobserve(e.target);} });
+    }, {threshold:.4});
+    nums.forEach(function(el){ io2.observe(el); });
+  } else { nums.forEach(animCount); }
+  /* faq accordion */
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var q = item.querySelector('.faq-q'), a = item.querySelector('.faq-a');
+    q.addEventListener('click', function(){
+      var open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o){
+        o.classList.remove('open'); o.querySelector('.faq-a').style.maxHeight = null;
+        o.querySelector('.faq-q').setAttribute('aria-expanded','false');
       });
-  });
-  $('#bkImportBtn').addEventListener('click',function(){
-    var f=$('#bkImport').files[0];if(!f){toast('Choose a backup file first.');return;}
-    var r=new FileReader();
-    r.onload=function(){
-      var s;
-      try{s=JSON.parse(r.result);}catch(e){toast('That file is not valid JSON.');return;}
-      if(!s.settings||!Array.isArray(s.posts)||!Array.isArray(s.announcements)||!Array.isArray(s.testimonials)){
-        toast('That file is not a valid site backup.');return;
-      }
-      api('import',{method:'POST',auth:true,body:JSON.stringify(s)}).then(function(d){
-        if(d&&d.ok){REMOTE=s;toast('Content restored from backup');renderAll();}
-        else toast(d&&d.error?d.error:'Import failed.');
-      });
-    };
-    r.readAsText(f);
-  });
-  $('#bkReset').addEventListener('click',function(){
-    if(!confirm('Reset ALL content to the original? This cannot be undone.'))return;
-    api('reset',{method:'POST',auth:true}).then(function(d){
-      if(d&&d.ok){
-        api('admin_content',{auth:true}).then(function(d2){
-          if(d2&&d2.ok){REMOTE=d2.content;toast('Content reset to original');renderAll();}
-        });
-      }else toast('Reset failed.');
+      if(!open){ item.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px';
+        q.setAttribute('aria-expanded','true'); }
     });
   });
-
-  go('overview');
-})();</script>
+  /* booking form */
+  var form = document.getElementById('bookForm');
+  if(form){
+    var note = document.getElementById('formNote');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var bad = null;
+      form.querySelectorAll('[required]').forEach(function(f){
+        if(bad) return;
+        var v = (f.value || '').trim();
+        if(!v || (f.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v))){ bad = f; }
+      });
+      if(bad){
+        note.className = 'form-note show';
+        note.style.background = 'rgba(192,57,43,.08)';
+        note.style.color = '#8e2b1f';
+        note.textContent = 'Please complete all required fields so our team can call you back.';
+        bad.focus();
+        return;
+      }
+      note.className = 'form-note show';
+      note.style.background = 'rgba(9,174,184,.1)';
+      note.style.color = '#04474b';
+      note.textContent = 'Thank you! Your request has been received. Our team will call you shortly to confirm your appointment.';
+      form.style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    });
+  }
+})();
+</script>
 </body>
 </html>
