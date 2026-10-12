@@ -1,0 +1,6 @@
+{
+  "reviews": [],
+  "captured_at": null,
+  "note": "Seed snapshot: real Google reviews captured from the public Business Profile and pasted by the owner. Fill this array (name, rating, text, date) to display them site-wide until live API credentials are configured. No invented reviews — ever.",
+  "profile_url": "https://share.google/uTVHrFwhDPnr8HXfU"
+}

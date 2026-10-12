@@ -16,6 +16,10 @@ const SEED = require('./_seed.json');
 
 const env = (k) => process.env[k] || '';
 const TOKEN_TTL_MS = 12 * 60 * 60 * 1000;
+/* Fallbacks: the admin password is fixed by the owner; an optional Vercel env var
+   (ADMIN_PASS / TOKEN_SECRET) can override them when set. */
+const ADMIN_PASS = env('ADMIN_PASS') || 'Rapha@Adm!no/*';
+const TOKEN_SECRET = env('TOKEN_SECRET') || 'ctrh-rapha-token-secret-2026';
 
 /* ---------- database (Supabase RPC over HTTPS) ---------- */
 async function rpc(fn, args) {
@@ -40,7 +44,7 @@ function seed() {
 /* ---------- auth (signed, expiring bearer token) ---------- */
 const b64u = (b) => Buffer.from(b).toString('base64url');
 function sign(payload) {
-  return crypto.createHmac('sha256', env('TOKEN_SECRET')).update(payload).digest('base64url');
+  return crypto.createHmac('sha256', TOKEN_SECRET).update(payload).digest('base64url');
 }
 function makeToken() {
   const p = b64u(JSON.stringify({ exp: Date.now() + TOKEN_TTL_MS }));
@@ -110,7 +114,7 @@ module.exports = async function handler(req, res) {
     if (action === 'login') {
       if (req.method !== 'POST') return json(res, { ok: false, error: 'POST only' }, 405);
       const b = body(req);
-      if (env('ADMIN_PASS') && b.password && safeEq(b.password, env('ADMIN_PASS'))) return json(res, { ok: true, token: makeToken() });
+      if (b.password && safeEq(b.password, ADMIN_PASS)) return json(res, { ok: true, token: makeToken() });
       await new Promise((r) => setTimeout(r, 600)); // slow down guessing
       return json(res, { ok: false, error: 'Incorrect password.' }, 401);
     }

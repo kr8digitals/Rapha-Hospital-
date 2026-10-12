@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /api/
+Disallow: /keywords.csv
 
 Sitemap: https://chitomraphahospital.com/sitemap.xml

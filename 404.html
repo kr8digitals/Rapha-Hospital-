@@ -1090,19 +1090,11 @@ window.CTRH_SEED = {"settings": {"siteName": "Chi-Tom Rapha Hospital & Maternity
       +'<div class="tst-pop-body" id="tstPopBody">'
       +'<span class="eyebrow">Community Voices</span>'
       +'<h3 id="tstPopTitle">Your story could help the next person</h3>'
-      +'<p class="tst-pop-sub">Behind every visit is a family making a decision. Tell us about your experience at Chi-Tom Rapha Hospital — or what you have heard from someone who has been — and your story will appear in our Community Voices section.</p>'
+      +'<p class="tst-pop-sub">Behind every visit is a family making a decision. Tell us about your experience at Chi-Tom Rapha Hospital — it will appear in our Community Voices section.</p>'
       +'<form id="tstPopForm">'
-      +'<div class="tst-radios">'
-      +'<label class="tst-radio"><input type="radio" name="tkind" value="experience" checked><span>I want to share my own experience</span></label>'
-      +'<label class="tst-radio"><input type="radio" name="tkind" value="heard"><span>I would like to share what I have heard or know</span></label>'
-      +'</div>'
-      +'<div class="e-field"><label>Your name <small style="color:var(--gray);font-weight:400">(optional — leave blank to stay anonymous)</small></label><input type="text" id="tstName" maxlength="60" placeholder="e.g. Mrs. Amina O."></div>'
-      +'<div class="e-field"><label>You are a…</label><select id="tstRel"><option>Patient</option><option>Family member</option><option>New mother</option><option>Referred by a friend</option><option>Community member</option><option>Other</option></select></div>'
-      +'<div class="e-field" id="tstRateWrap"><label>Your rating</label><div class="tst-rate" id="tstRate" role="radiogroup" aria-label="Rating"></div><p class="tst-rate-err" id="tstRateErr" hidden>Please tap a star to rate your experience.</p></div>'
-      +'<div class="e-field"><label>Your story *</label><textarea id="tstMsg" rows="4" placeholder="What happened? How was the care? Who helped? What stood out to you?"></textarea><p class="tst-rate-err" id="tstMsgErr" hidden>Please write a little more — at least a couple of sentences.</p></div>'
-      +'<p class="tst-pop-note">Your story will appear in our Community Voices section on this page.</p>'
+      +'<div class="e-field"><label>Your rating</label><div class="tst-rate" id="tstRate" role="radiogroup" aria-label="Your rating"></div><p class="tst-rate-err" id="tstRateErr" hidden>Please tap a star to rate your experience.</p></div>'
+      +'<div class="e-field"><label>Your opinion *</label><textarea id="tstMsg" rows="4" placeholder="Tell us about your visit — how you were received, how the care felt, what stood out to you."></textarea><p class="tst-rate-err" id="tstMsgErr" hidden>Please write a little more — at least a couple of sentences.</p></div>'
       +'<div class="tst-pop-actions"><button class="btn btn-teal" type="submit">Share my story</button><button class="btn btn-ghost" type="button" id="tstLater">Maybe later</button></div>'
-      +'<button class="tst-pop-no" type="button" id="tstNo">No thanks</button>'
       +'</form>'
       +'</div>'
       +'</div></div>';
@@ -1139,7 +1131,7 @@ window.CTRH_SEED = {"settings": {"siteName": "Chi-Tom Rapha Hospital & Maternity
     ov.style.display='flex';
     requestAnimationFrame(function(){requestAnimationFrame(function(){ov.classList.add('show');});});
     document.body.style.overflow='hidden';
-    var f=ov.querySelector('input[type=radio]');if(f)f.focus();
+    var f=ov.querySelector('.tst-starbtn')||ov.querySelector('textarea');if(f)f.focus();
   }
   function closeTstPopup(suppressMs){
     if(!popOpen)return;
@@ -1156,7 +1148,6 @@ window.CTRH_SEED = {"settings": {"siteName": "Chi-Tom Rapha Hospital & Maternity
   function wirePop(){
     document.getElementById('tstPopX').addEventListener('click',function(){closeTstPopup(72*3600000);});
     document.getElementById('tstLater').addEventListener('click',function(){closeTstPopup(72*3600000);});
-    document.getElementById('tstNo').addEventListener('click',function(){closeTstPopup(30*86400000);});
     document.getElementById('tstPopOverlay').addEventListener('click',function(e){if(e.target===this)closeTstPopup(72*3600000);});
     document.addEventListener('keydown',function(ev){
       if(!popOpen)return;
@@ -1171,29 +1162,20 @@ window.CTRH_SEED = {"settings": {"siteName": "Chi-Tom Rapha Hospital & Maternity
         else if(!ev.shiftKey&&document.activeElement===last){ev.preventDefault();first.focus();}
       }
     });
-    var radios=popEl.querySelectorAll('input[name=tkind]');
-    for(var i=0;i<radios.length;i++)(function(rd){
-      rd.addEventListener('change',function(){
-        var w=document.getElementById('tstRateWrap');
-        if(w)w.style.display=(rd.value==='experience'&&rd.checked)?'':'none';
-      });
-    })(radios[i]);
     buildRate();
     document.getElementById('tstPopForm').addEventListener('submit',function(ev){
       ev.preventDefault();
-      var checked=popEl.querySelector('input[name=tkind]:checked');
-      var kind=checked?checked.value:'experience';
       var msg=document.getElementById('tstMsg').value.trim();
       var ok=true;
       document.getElementById('tstMsgErr').hidden=msg.length>=12;
       if(msg.length<12)ok=false;
-      if(kind==='experience'&&!popRating){document.getElementById('tstRateErr').hidden=false;ok=false;}
+      if(!popRating){document.getElementById('tstRateErr').hidden=false;ok=false;}
       if(!ok)return;
       var t={id:'t'+Date.now().toString(36)+Math.random().toString(36).slice(2,5),
-        name:document.getElementById('tstName').value.trim(),
-        relation:document.getElementById('tstRel').value,
-        kind:kind,
-        rating:kind==='experience'?popRating:null,
+        name:'',
+        relation:'Community member',
+        kind:'experience',
+        rating:popRating,
         message:msg,
         date:new Date().toISOString().slice(0,10),
         pinned:false,status:'publish',flagged:false};

@@ -80,6 +80,11 @@ async function cacheSet(payload) {
   try { await rpc('rapha_reviews_set', { p_payload: payload }); } catch (e) { /* cache is best-effort */ }
 }
 
+/* ---------- seeded snapshot (real reviews captured from the public profile,
+   pasted by the owner — used until live API credentials are configured) ---- */
+let SEED_SNAPSHOT = null;
+try { SEED_SNAPSHOT = require('./_reviews_seed.json'); } catch (e) { /* not present */ }
+
 /* ---------- providers ---------- */
 async function gbpReviews() {
   const key = env('GBP_API_KEY');
@@ -168,6 +173,11 @@ exports.handler = async (req, res) => {
       return json(res, { ok: true, cached: true, stale: true, profile_url: PROFILE_URL,
         synced_at: cached.synced_at, reviews: cached.payload.reviews,
         source: (cached.payload.source || 'cache') + ' (stale)', message: 'Live sync failed: ' + e.message });
+    }
+    if (SEED_SNAPSHOT && Array.isArray(SEED_SNAPSHOT.reviews) && SEED_SNAPSHOT.reviews.length) {
+      return json(res, { ok: true, cached: true, seeded: true, profile_url: PROFILE_URL,
+        synced_at: SEED_SNAPSHOT.captured_at || null, reviews: SEED_SNAPSHOT.reviews,
+        source: 'google (profile snapshot)', message: SEED_SNAPSHOT.note || '' });
     }
     return json(res, { ok: true, cached: false, profile_url: PROFILE_URL, synced_at: null,
       reviews: [], source: 'none', message: 'Google reviews not live yet — ' + e.message });
